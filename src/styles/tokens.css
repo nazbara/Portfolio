@@ -1,0 +1,179 @@
+/*
+ * Nezbara design tokens — plain CSS variables, no framework dependency.
+ *
+ * Layer 1 (:root)        raw values: palette, type, layout, radii, shadows, motion.
+ * Layer 2 (data-theme)   semantic values (--bg, --fg, …) that flip per section:
+ *                        <section data-theme="dark"> … </section>
+ *
+ * Raw names deliberately avoid Tailwind's theme namespaces (--radius-*, --font-*,
+ * --shadow-*, --ease-* …). globals.css maps them onto Tailwind utilities.
+ */
+
+:root {
+  /* ── Colour: brand ─────────────────────────────────────────── */
+  --ink: #0a0a0a;
+  --paper: #ffffff;
+  --accent: #D9A22B; /* placeholder gold — confirm against final brand */
+  --on-accent: var(--ink);
+
+  /* ── Colour: grey scale (slightly warm neutral) ────────────── */
+  --grey-50: #f7f7f6;
+  --grey-100: #efefee;
+  --grey-200: #e2e2e0;
+  --grey-300: #cfcfcc;
+  --grey-400: #a6a6a2;
+  --grey-500: #767672;
+  --grey-600: #5a5a57;
+  --grey-700: #414140;
+  --grey-800: #2a2a29;
+  --grey-900: #171717;
+
+  /* Slate: the dimmed line of a stacked headline + small muted labels on dark.
+   * Sampled from the reference hero (median of ~43k interior pixels across two lines). */
+  --slate: #6a727f;
+
+  /* ── Typography ────────────────────────────────────────────── */
+  --font-family:
+    'Manrope Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    Roboto, sans-serif;
+
+  /* Fluid scale: clamp(min, preferred, max). Max ≤ 2.5× min keeps zoom accessible. */
+  /* Hero display, set uppercase. Reference @1916: cap height ≈100px, baseline pitch 127.7px →
+   * Manrope (cap ratio 0.72) font-size ≈139px = 7.3vw; with --lh-display .92 the pitch is 128px. */
+  --fs-display: clamp(3.25rem, 7.3vw, 8.7rem);
+  --fs-h1: clamp(2.5rem, 5.5vw, 5.25rem);
+  --fs-h2: clamp(2rem, 4vw, 3.75rem);
+  --fs-h3: clamp(1.375rem, 2.2vw, 2rem);
+  --fs-lead: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+  --fs-body: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
+  --fs-small: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem);
+
+  --lh-display: 0.92;
+  --lh-h1: 1;
+  --lh-heading: 1.1;
+  --lh-lead: 1.45;
+  --lh-body: 1.65;
+  --lh-small: 1.5;
+
+  --ls-display: -0.035em;
+  --ls-heading: -0.02em;
+  --ls-label: 0.08em; /* eyebrows, pill labels */
+
+  --fw-display: 800;
+  --fw-heading: 700;
+
+  /* ── Layout ────────────────────────────────────────────────── */
+  --container-max: 120rem; /* 1920px, includes gutters — layout is near full-bleed */
+  --container-narrow: 64rem; /* long-form / text-heavy pages */
+  --gutter: clamp(1.25rem, 3.7vw, 4.5rem); /* ≈71px at 1920 */
+  --section-py: clamp(4.5rem, 10vw, 9rem);
+  --section-py-sm: clamp(3rem, 6vw, 5rem);
+
+  /* ── Radii ─────────────────────────────────────────────────── */
+  --r-card: 1.5rem;
+  --r-pill: 999px;
+
+  /* ── Shadows ───────────────────────────────────────────────── */
+  --sh-soft: 0 1px 2px rgb(10 10 10 / 0.06);
+  --sh-card: 0 1px 2px rgb(10 10 10 / 0.04), 0 12px 32px -8px rgb(10 10 10 / 0.14);
+  --sh-float: 0 10px 32px rgb(10 10 10 / 0.18), 0 2px 6px rgb(10 10 10 / 0.1); /* floating pill nav */
+  --sh-glow: 0 0 30px rgb(255 255 255 / 0.16); /* light CTA pill on dark; fitted to the reference halo */
+  --sh-glow-strong: 0 0 44px rgb(255 255 255 / 0.34); /* CTA hover */
+
+  /* ── Motion ────────────────────────────────────────────────── */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1); /* default for reveals */
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1); /* menu / page transitions */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* slight overshoot */
+
+  --dur-fast: 180ms;
+  --dur-base: 320ms;
+  --dur-slow: 600ms;
+  --dur-slower: 900ms;
+  --dur-reveal: 1200ms;
+
+  /* ── Header / navbar ───────────────────────────────────────────
+   * Everything scales from --fs-nav so the pill, CTA and logo keep the
+   * reference proportions at any width. Values were measured from the
+   * 1916px reference frame (fs 21px → pill 66px tall, 36px from the top).
+   */
+  --fs-nav: clamp(0.9375rem, 1.1vw, 1.3125rem);
+  --nav-h: calc(var(--fs-nav) * 3.143); /* pill fill + CTA height */
+  --header-top: calc(var(--fs-nav) * 1.714); /* gap above the pill */
+  --header-h: calc(var(--header-top) + var(--nav-h) + 2px); /* band the fixed header occupies (2px = pill border) */
+
+  /* Pill surface. The brief said rgba(20,20,20,.72), but over the white-section scrim that
+   * renders mid-grey (≈54) where the reference stays ≈36; rgb(25 25 25 / .9) fits all frames. */
+  --nav-bg: rgb(25 25 25 / 0.9);
+  --nav-border: rgb(255 255 255 / 0.06);
+  --nav-blur: 12px;
+
+  /* Scrim behind the header. Fitted to the reference over a white section: near-opaque
+   * to ~y=55px, then an eased fade out at 140px (a plain .85 → 0 ramp leaves the light
+   * logo on mid-grey, ~3:1 contrast). */
+  --scrim-h: 8.75rem;
+  --scrim-bg: linear-gradient(
+    to bottom,
+    rgb(10 10 10 / 1) 0%,
+    rgb(10 10 10 / 0.96) 36%,
+    rgb(10 10 10 / 0.86) 50%,
+    rgb(10 10 10 / 0.68) 60%,
+    rgb(10 10 10 / 0.4) 70%,
+    rgb(10 10 10 / 0.22) 80%,
+    rgb(10 10 10 / 0.1) 90%,
+    rgb(10 10 10 / 0) 100%
+  );
+
+  /* ── Stacking ──────────────────────────────────────────────── */
+  --z-scrim: 40;
+  --z-nav: 50;
+  --z-cursor: 100;
+}
+
+/* Below the lg breakpoint (1024px) the pill and CTA are replaced by a compact Menu button. */
+@media (width < 64rem) {
+  :root {
+    --fs-nav: 0.9375rem;
+    --nav-h: 2.75rem;
+    --header-top: 0.875rem;
+    --scrim-h: 6.25rem; /* the header is shorter on phones, so the scrim is too */
+    --fs-display: clamp(3.25rem, 15vw, 8.7rem); /* ~15vw on phones/tablets, stacked hero lines */
+  }
+}
+
+/* ── Themes ────────────────────────────────────────────────────
+ * Light is the default (:root). Every re-declaration below sets the complete
+ * semantic set, so a light section nested inside a dark one flips back cleanly.
+ */
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --fg-muted: var(--grey-600);
+  --fg-dim: var(--slate); /* dimmed line of a stacked headline, small labels */
+  --line: var(--grey-200);
+  --surface: var(--grey-100);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: var(--ink);
+  --fg: var(--paper);
+  --fg-muted: var(--grey-400);
+  --fg-dim: var(--slate);
+  --line: var(--grey-800);
+  --surface: var(--grey-900);
+}
+
+/* Anything timed with these tokens collapses for users who opt out of motion. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 1ms;
+    --dur-base: 1ms;
+    --dur-slow: 1ms;
+    --dur-slower: 1ms;
+    --dur-reveal: 1ms;
+  }
+}

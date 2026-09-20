@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Placeholder favicon: gold "N" on ink. Swap for the final brand mark. -->
+  <rect width="64" height="64" rx="14" fill="#0a0a0a"/>
+  <path fill="#D9A22B" d="M19 47V17h6l14 19V17h6v30h-6L25 28v19z"/>
+</svg>

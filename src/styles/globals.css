@@ -1,0 +1,165 @@
+@import 'tailwindcss';
+@import './tokens.css';
+@import '@fontsource-variable/manrope';
+@import 'lenis/dist/lenis.css';
+
+/* Tailwind's `dark:` follows [data-theme="dark"], never the OS setting. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/*
+ * Expose tokens as Tailwind utilities. `inline` makes utilities point at the
+ * token itself (var(--bg)) instead of a root-level copy, which is what lets
+ * `bg-canvas` / `text-fg` flip inside a [data-theme] section.
+ */
+@theme inline {
+  /* Brand */
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+
+  --color-grey-50: var(--grey-50);
+  --color-grey-100: var(--grey-100);
+  --color-grey-200: var(--grey-200);
+  --color-grey-300: var(--grey-300);
+  --color-grey-400: var(--grey-400);
+  --color-grey-500: var(--grey-500);
+  --color-grey-600: var(--grey-600);
+  --color-grey-700: var(--grey-700);
+  --color-grey-800: var(--grey-800);
+  --color-grey-900: var(--grey-900);
+
+  /* Semantic — flip with data-theme */
+  --color-canvas: var(--bg);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-dim: var(--fg-dim);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+
+  --font-sans: var(--font-family);
+
+  --text-h1: var(--fs-h1);
+  --text-h1--line-height: var(--lh-h1);
+  --text-h2: var(--fs-h2);
+  --text-h2--line-height: var(--lh-heading);
+  --text-h3: var(--fs-h3);
+  --text-h3--line-height: var(--lh-heading);
+  --text-lead: var(--fs-lead);
+  --text-lead--line-height: var(--lh-lead);
+  --text-body: var(--fs-body);
+  --text-body--line-height: var(--lh-body);
+  --text-small: var(--fs-small);
+  --text-small--line-height: var(--lh-small);
+
+  --radius-card: var(--r-card);
+  --radius-pill: var(--r-pill);
+
+  --shadow-soft: var(--sh-soft);
+  --shadow-card: var(--sh-card);
+  --shadow-float: var(--sh-float);
+  --shadow-glow: var(--sh-glow);
+}
+
+/* Hero display role: fluid, heavy, uppercase. Usage: <h1 class="type-display"> */
+@utility type-display {
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  font-weight: var(--fw-display);
+  text-transform: uppercase;
+}
+
+@utility site-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@utility section-y {
+  padding-block: var(--section-py);
+}
+
+/* Hero photo: fades the left and bottom edges into the section background (--ink) so the
+ * photo's near-black edges disappear. On phones the photo floats mid-screen, so the top fades too. */
+@utility hero-photo-mask {
+  mask-image:
+    linear-gradient(to right, transparent 0%, #000 34%), linear-gradient(to top, transparent 0%, #000 30%),
+    linear-gradient(to bottom, transparent 0%, #000 22%);
+  mask-composite: intersect;
+
+  @media (width >= 64rem) {
+    mask-image: linear-gradient(to right, transparent 0%, #000 38%), linear-gradient(to top, transparent 0%, #000 44%);
+  }
+}
+
+/* Client marquee: the track holds two identical copies, so -50% is exactly one copy. */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Tailwind's preflight is the reset; this layer adds Nezbara's base look. */
+@layer base {
+  html {
+    font-family: var(--font-family);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    min-height: 100svh;
+    font-family: var(--font-family);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+  }
+
+  /* <body> and every themed section paint their own background and text colour. */
+  body,
+  [data-theme] {
+    background-color: var(--bg);
+    color: var(--fg);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-weight: var(--fw-heading);
+    letter-spacing: var(--ls-heading);
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: var(--fs-h1);
+    line-height: var(--lh-h1);
+  }
+
+  h2 {
+    font-size: var(--fs-h2);
+    line-height: var(--lh-heading);
+  }
+
+  h3 {
+    font-size: var(--fs-h3);
+    line-height: var(--lh-heading);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--on-accent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+}
