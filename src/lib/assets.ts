@@ -17,6 +17,6 @@
 import logoFull from '@/assets/brand/logo-full.webp'
 import logoMark from '@/assets/brand/logo-mark.webp'
 import logoWordmark from '@/assets/brand/logo-wordmark.webp'
-import heroPhoto from '@/assets/hero/hero-photo.webp'
+import heroPhoto from '@/assets/hero/hero-pic.webp'
 
 export { heroPhoto, logoFull, logoMark, logoWordmark }
