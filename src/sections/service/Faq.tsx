@@ -24,7 +24,7 @@ function Chevron({ open }: { open: boolean }) {
 }
 
 /**
- * White section with a centred column (78.6vw, ≤ 1500px measured) of hairline-separated rows: a bold 28.6px
+ * Dark section (heading "FAQ'S" above) with a centred column (78.6vw, ≤ 1500px measured) of hairline-separated rows: a bold 28.6px
  * question and a chevron on the right. Accessible accordion — the question is a real <button aria-expanded
  * aria-controls> inside the heading, the answer a labelled region; one row open at a time, all closed at
  * first, Enter / Space toggle. The answer's height animates with framer-motion (instant under reduced
@@ -37,20 +37,22 @@ export default function Faq({ page }: { page: ServicePage }) {
   const reduced = useMediaQuery('(prefers-reduced-motion: reduce)')
 
   return (
-    <section data-theme="light" aria-labelledby={`${uid}-heading`} className="bg-canvas py-(--section-py-lg)">
-      <h2 id={`${uid}-heading`} className="sr-only">
-        {serviceCommon.faqHeading}
-      </h2>
-
+    <section data-theme="dark" aria-labelledby={`${uid}-heading`} className="bg-canvas py-(--section-py-lg)">
       <div className="site-container">
         <Reveal className="mx-auto w-full lg:w-[78.6vw] lg:max-w-[93.75rem]">
-          <ul className="border-t border-line-soft">
+          <h2
+            id={`${uid}-heading`}
+            className="mb-10 text-(length:--fs-statement) leading-none font-bold tracking-[-0.045em] uppercase lg:mb-[4vw]"
+          >
+            {serviceCommon.faqHeading}
+          </h2>
+          <ul className="border-t border-line">
             {page.faq.map((item, i) => {
               const isOpen = open === i
               const buttonId = `${uid}-q${i}`
               const panelId = `${uid}-a${i}`
               return (
-                <li key={item.q} className="border-b border-line-soft">
+                <li key={item.q} className="border-b border-line">
                   <h3 className="m-0 text-base font-normal tracking-normal">
                     <button
                       id={buttonId}

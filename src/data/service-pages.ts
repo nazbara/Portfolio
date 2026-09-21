@@ -26,7 +26,7 @@ export type ServicePage = {
 export const serviceCommon = {
   relatedWorkHeading: 'Related work',
   relatedArticlesHeading: 'Related articles',
-  faqHeading: 'Frequently asked questions',
+  faqHeading: "FAQ'S",
 } as const
 
 const brandStrategy: ServicePage = {

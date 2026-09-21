@@ -8,13 +8,12 @@ import Approach from '@/sections/service/Approach'
 import Faq from '@/sections/service/Faq'
 import Includes from '@/sections/service/Includes'
 import Process from '@/sections/service/Process'
-import RelatedInsights from '@/sections/service/RelatedInsights'
-import RelatedWork from '@/sections/service/RelatedWork'
 import ServiceHero from '@/sections/service/ServiceHero'
 
 /**
- * /services/:slug — hero → approach → what's included → process → related work → related articles → FAQ →
- * testimonials → dark contact (footer comes from Layout). Content comes from data/service-pages.ts; a slug
+ * /services/:slug — hero → approach → what's included → process → FAQ → testimonials → dark contact (footer
+ * comes from Layout). The related-work and related-articles sections (src/sections/service/RelatedWork.tsx,
+ * RelatedInsights.tsx) are built but not used at the moment. Content comes from data/service-pages.ts; a slug
  * that is neither brand-strategy nor a service item / group in services.ts shows the 404 page.
  */
 export default function ServiceDetail() {
@@ -30,8 +29,6 @@ export default function ServiceDetail() {
       <Approach page={page} />
       <Includes page={page} />
       <Process page={page} />
-      <RelatedWork />
-      <RelatedInsights />
       <Faq page={page} />
       <Testimonials label={page.testimonialsLabel} />
       <Contact variant="dark" tone="ink" compact phone checklist={false} heading={page.contact.heading} body={page.contact.body} />
