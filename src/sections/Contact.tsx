@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import ContactForm from '@/components/ContactForm'
 import Reveal from '@/components/Reveal'
 import { contactChecklist, contactHeading, contactIntro } from '@/data/contact'
@@ -25,6 +26,10 @@ export default function Contact({
   variant = 'light',
   phone = false,
   heading = contactHeading,
+  body,
+  checklist = true,
+  tone = 'raised',
+  compact = false,
 }: {
   /** /contact page: h1 + room for the fixed header. */
   page?: boolean
@@ -33,6 +38,14 @@ export default function Contact({
   /** Adds the required Phone field (between Email and the message). */
   phone?: boolean
   heading?: string
+  /** Replaces the intro line with a larger, cool-grey paragraph (36px light) — the service pages' contact. */
+  body?: string
+  /** Show the two-item checklist under the intro (default). The service pages leave it out. */
+  checklist?: boolean
+  /** dark only: `raised` = #111 section (About), `ink` = the site's ink #0a0a0a with a slightly stronger card (service pages). */
+  tone?: 'raised' | 'ink'
+  /** Tighter padding: 7vw above, 6.3vw below (service pages) instead of 10vw both. */
+  compact?: boolean
 }) {
   const Heading = page ? 'h1' : 'h2'
   const dark = variant === 'dark'
@@ -42,11 +55,20 @@ export default function Contact({
       id="contact"
       data-theme={variant}
       aria-labelledby="contact-heading"
-      className={`${dark ? 'bg-dark-contact' : 'bg-canvas'} pb-(--section-py-lg) ${
-        page ? 'pt-[calc(max(var(--scrim-h),var(--header-h))+3rem)] lg:pt-[calc(max(var(--scrim-h),var(--header-h))+4vw)]' : 'pt-(--section-py-lg)'
+      style={dark && tone === 'ink' ? ({ '--dark-card-bg': 'rgb(255 255 255 / 0.05)' } as CSSProperties) : undefined}
+      className={`${dark && tone === 'raised' ? 'bg-dark-contact' : 'bg-canvas'} ${compact ? 'pb-(--about-py)' : 'pb-(--section-py-lg)'} ${
+        page
+          ? 'pt-[calc(max(var(--scrim-h),var(--header-h))+3rem)] lg:pt-[calc(max(var(--scrim-h),var(--header-h))+4vw)]'
+          : compact
+            ? 'pt-[clamp(3rem,7vw,8.5rem)]'
+            : 'pt-(--section-py-lg)'
       }`}
     >
-      <div className="site-container grid gap-y-14 lg:grid-cols-[minmax(0,1fr)_45.75%] lg:items-start lg:gap-x-[4vw]">
+      <div
+        className={`site-container grid gap-y-14 lg:items-start lg:gap-x-[4vw] ${
+          tone === 'ink' ? 'lg:grid-cols-[minmax(0,1fr)_47.3%]' : 'lg:grid-cols-[minmax(0,1fr)_45.75%]'
+        }`}
+      >
         <div>
           <Reveal>
             <Heading
@@ -58,12 +80,17 @@ export default function Contact({
           </Reveal>
 
           <Reveal delay={0.08} className="mt-6 lg:mt-[2vw]">
-            <p className="max-w-[25em] text-(length:--fs-lead-md) leading-[1.35] font-light text-fg-muted">
-              {contactIntro}
-            </p>
+            {body ? (
+              <p className="max-w-[24em] text-(length:--fs-lead-lg) leading-[1.333] font-light text-fg-quiet">{body}</p>
+            ) : (
+              <p className="max-w-[25em] text-(length:--fs-lead-md) leading-[1.35] font-light text-fg-muted">
+                {contactIntro}
+              </p>
+            )}
           </Reveal>
 
-          <ul className="mt-10 space-y-8 lg:mt-[4.1vw] lg:space-y-[2.8vw]">
+          {checklist && (
+          <ul className={`mt-10 space-y-8 lg:mt-[4.1vw] lg:space-y-[2.8vw]`}>
             {contactChecklist.map((item, i) => (
               <Reveal key={item.title} as="li" delay={0.16 + i * 0.08}>
                 <div className="grid grid-cols-[2.25rem_1fr] gap-x-5 lg:gap-x-6">
@@ -76,6 +103,7 @@ export default function Contact({
               </Reveal>
             ))}
           </ul>
+          )}
         </div>
 
         <Reveal delay={0.16}>

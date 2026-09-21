@@ -1,6 +1,7 @@
 import { useState, type KeyboardEvent } from 'react'
 import { AnimatePresence, motion, type PanInfo } from 'framer-motion'
 import Reveal from '@/components/Reveal'
+import SectionLabel from '@/components/SectionLabel'
 import SlideDots from '@/components/SlideDots'
 import { testimonials, testimonialsHeading, type Testimonial } from '@/data/testimonials'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
@@ -74,8 +75,10 @@ function ArrowButton({ dir, onClick }: { dir: -1 | 1; onClick: () => void }) {
  * quote (every quote is rendered hidden in the same grid cell) and the live one is centred inside
  * it, so nothing jumps; slides crossfade with an 8px slide (350ms, out-quart), or swap instantly
  * under reduced motion. Announces "Testimonial N of M" through a polite live region.
+ * With a `label` (the service page: "Kind words") a SectionLabel sits above the card, aligned with its left
+ * edge, and the band gets the larger 10vw padding the frames show.
  */
-export default function Testimonials() {
+export default function Testimonials({ label }: { label?: string } = {}) {
   const reduced = useMediaQuery('(prefers-reduced-motion: reduce)')
   const [{ index, dir }, setState] = useState({ index: 0, dir: 1 })
 
@@ -101,13 +104,18 @@ export default function Testimonials() {
       id="testimonials"
       data-theme="light"
       aria-labelledby="testimonials-heading"
-      className="bg-paper-soft py-(--section-py)"
+      className={`bg-paper-soft ${label ? 'py-(--section-py-lg)' : 'py-(--section-py)'}`}
     >
       <h2 id="testimonials-heading" className="sr-only">
         {testimonialsHeading}
       </h2>
 
       <div className="site-container">
+        {label && (
+          <Reveal className="mx-auto mb-8 w-full lg:mb-[3.7vw] lg:w-[73.45vw] lg:max-w-[87.5rem]">
+            <SectionLabel>{label}</SectionLabel>
+          </Reveal>
+        )}
         <Reveal>
           <div
             role="region"

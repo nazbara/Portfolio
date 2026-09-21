@@ -59,7 +59,7 @@ async function send(values: Values, withPhone: boolean): Promise<void> {
 const fieldBase: Record<Variant, string> = {
   light:
     'block w-full rounded-(--r-field) border border-field-line bg-paper px-4 text-(length:--fs-field) font-light text-fg placeholder:text-grey-500 aria-invalid:border-danger lg:px-[1.6vw]',
-  dark: 'block w-full rounded-(--r-field) border border-(--dark-field-line) bg-dark-contact px-4 text-(length:--fs-field) font-light text-fg placeholder:text-[#6b7083] aria-invalid:border-danger-on-dark lg:px-[1.6vw]',
+  dark: 'block w-full rounded-(--r-field) border border-(--dark-field-line) bg-black/35 px-4 text-(length:--fs-field) font-light text-fg placeholder:text-[#6b7083] aria-invalid:border-danger-on-dark lg:px-[1.6vw]',
 }
 
 function FieldError({ id, message, dark }: { id: string; message?: string; dark: boolean }) {
@@ -202,7 +202,8 @@ export default function ContactForm({ variant = 'light', phone: withPhone = fals
         </div>
       ) : (
         <form ref={formRef} noValidate onSubmit={onSubmit} aria-busy={sending}>
-          <div className="flex flex-col gap-5 lg:gap-[1.9vw]">
+          {/* Dark variant: Name and Email share a row from 1024px (frames service-top-17); everything else is full width. */}
+          <div className={dark ? 'grid gap-5 lg:grid-cols-2 lg:gap-[1.9vw]' : 'flex flex-col gap-5 lg:gap-[1.9vw]'}>
             {fields.map((field) => {
               const conf = copy.fields[field]
               const err = errors[field]
@@ -218,7 +219,7 @@ export default function ContactForm({ variant = 'light', phone: withPhone = fals
                 onBlur: () => blur(field),
               }
               return (
-                <div key={field}>
+                <div key={field} className={dark && (field === 'phone' || field === 'message') ? 'lg:col-span-2' : undefined}>
                   <label htmlFor={id(field)} className="sr-only">
                     {conf.label}
                   </label>

@@ -48,3 +48,10 @@ const clientLogos = bySlug(
  */
 export const getClientLogo = (name: string): string | undefined =>
   clientLogos.get(name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''))
+
+const serviceImages = bySlug(
+  import.meta.glob<string>('../assets/services/*.webp', { eager: true, import: 'default' }),
+)
+
+/** src/assets/services/<name>.webp — service page pictures, named `<service slug>-<slot>`, e.g. "brand-strategy-approach". */
+export const getServiceImage = (name: string): string | undefined => serviceImages.get(name)

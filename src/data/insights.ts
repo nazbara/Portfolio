@@ -9,6 +9,8 @@ export interface InsightPost {
   minutes: number
   title: string
   excerpt: string
+  /** 2–3 short keyword tags, shown on the service page's related articles. */
+  tags: string[]
   /** ISO date (yyyy-mm-dd). */
   date: string
 }
@@ -27,6 +29,7 @@ export const insightPosts: InsightPost[] = [
     minutes: 4,
     title: 'Sample article title that runs to a couple of lines',
     excerpt: 'Placeholder excerpt. One or two sentences that set up the article and give a reason to read on.',
+    tags: ['Brand strategy', 'Positioning', 'Messaging'],
     date: '2026-01-12',
   },
   {
@@ -35,6 +38,7 @@ export const insightPosts: InsightPost[] = [
     minutes: 5,
     title: 'Another sample article title, a little longer than the first one',
     excerpt: 'Placeholder excerpt. One or two sentences that set up the article and give a reason to read on.',
+    tags: ['Design systems', 'Identity'],
     date: '2026-01-28',
   },
   {
@@ -43,6 +47,7 @@ export const insightPosts: InsightPost[] = [
     minutes: 3,
     title: 'A third sample article title for the grid',
     excerpt: 'Placeholder excerpt. One or two sentences that set up the article and give a reason to read on.',
+    tags: ['Strategy', 'Research', 'Audience'],
     date: '2026-02-09',
   },
   {
@@ -51,6 +56,7 @@ export const insightPosts: InsightPost[] = [
     minutes: 6,
     title: 'A fourth sample article, only shown in the carousel',
     excerpt: 'Placeholder excerpt. One or two sentences that set up the article and give a reason to read on.',
+    tags: ['Process', 'Workshops'],
     date: '2026-02-24',
   },
   {
@@ -59,6 +65,7 @@ export const insightPosts: InsightPost[] = [
     minutes: 4,
     title: 'A fifth sample article, reached by swiping or the dots',
     excerpt: 'Placeholder excerpt. One or two sentences that set up the article and give a reason to read on.',
+    tags: ['Culture', 'Teams'],
     date: '2026-03-10',
   },
   {
@@ -67,6 +74,7 @@ export const insightPosts: InsightPost[] = [
     minutes: 7,
     title: 'A sixth sample article to fill out the carousel',
     excerpt: 'Placeholder excerpt. One or two sentences that set up the article and give a reason to read on.',
+    tags: ['Craft', 'Detail', 'Quality'],
     date: '2026-03-26',
   },
 ]

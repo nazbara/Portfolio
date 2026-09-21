@@ -355,6 +355,71 @@ html {
   }
 }
 
+/*
+ * Service page: "what's included" cards and process cards.
+ *  .include-card  → one flipped state (hover / :active / :focus-visible): background brightens, text goes
+ *                   pure white, the check badge brightens. Colours only, so the grid never reflows.
+ *  .process-card  → lifts 6px with a stronger shadow on hover (hover-capable devices) and on :active.
+ * Timings are --dur-base / --ease-standard; reduced motion collapses them to 1ms via the --dur-* tokens.
+ */
+@layer components {
+  .include-card {
+    --inc-bg: var(--include-bg);
+    --inc-text: var(--include-text);
+    --inc-badge: var(--include-badge);
+    background-color: var(--inc-bg);
+    transition: background-color var(--dur-base) var(--ease-standard);
+  }
+
+  .include-card:focus-visible,
+  .include-card:active {
+    --inc-bg: var(--include-bg-hover);
+    --inc-text: #fff;
+    --inc-badge: var(--include-badge-hover);
+  }
+
+  @media (hover: hover) {
+    .include-card:hover {
+      --inc-bg: var(--include-bg-hover);
+      --inc-text: #fff;
+      --inc-badge: var(--include-badge-hover);
+    }
+  }
+
+  .include-card:focus-visible {
+    outline-offset: 3px;
+  }
+
+  .include-card__text {
+    color: var(--inc-text);
+    transition: color var(--dur-base) var(--ease-standard);
+  }
+
+  .include-card__badge {
+    background-color: var(--inc-badge);
+    transition: background-color var(--dur-base) var(--ease-standard);
+  }
+
+  .process-card {
+    box-shadow: var(--sh-step);
+    transition:
+      transform var(--dur-base) var(--ease-standard),
+      box-shadow var(--dur-base) var(--ease-standard);
+  }
+
+  .process-card:active {
+    transform: translateY(-6px);
+    box-shadow: var(--sh-step-hover);
+  }
+
+  @media (hover: hover) {
+    .process-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--sh-step-hover);
+    }
+  }
+}
+
 /* Client marquee: the track holds two identical copies, so -50% is exactly one copy. */
 @keyframes marquee {
   to {

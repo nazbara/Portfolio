@@ -54,6 +54,19 @@
   --dark-card-line: rgb(255 255 255 / 0.075); /* dark form card border */
   --dark-card-bg: rgb(255 255 255 / 0.04); /* dark form card fill (26 on 17) */
 
+  /* Step 8 (service page), sampled from service-top-frames. */
+  --include-bg: rgb(255 255 255 / 0.03); /* "what's included" card (17 on 10) */
+  --include-bg-hover: rgb(255 255 255 / 0.057); /* hover (24 on 10) */
+  --include-line: rgb(255 255 255 / 0.125); /* card border (41 on 10) */
+  --include-badge: #2a2a2a; /* check badge (42) … */
+  --include-badge-hover: #464646; /* … and on hover (70) */
+  --include-text: #d3dbe4; /* card text (≈209,218,227), pure white on hover */
+  --work-card-bg: #161616; /* related-work card (22) */
+  --work-card-line: rgb(255 255 255 / 0.13);
+  --sep-article: #d5d5d5; /* vertical hairlines between related articles (213) */
+  --sh-step: 0 10px 36px rgb(0 0 0 / 0.08); /* process card; falloff sampled below the card */
+  --sh-step-hover: 0 16px 44px rgb(0 0 0 / 0.15); /* lifted 6px */
+
   /* ── Typography ────────────────────────────────────────────── */
   --font-family:
     'Manrope Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
@@ -113,6 +126,14 @@
   --fs-value-word: clamp(2.75rem, 9vw, 11rem);
   --fs-lead-xl: clamp(1.25rem, 2.36vw, 2.85rem);
 
+  /* Service page (frames @1908): hero 145px lh 1.0 ls ≈-.05em; process number 32px; FAQ question 28.6px semibold. */
+  --fs-service-hero: clamp(3rem, 7.6vw, 11rem);
+  --fs-step-num: clamp(1.25rem, 1.68vw, 2.1rem);
+  --fs-faq: clamp(1.125rem, 1.5vw, 1.9rem);
+  --fs-article-title: clamp(1.125rem, 1.59vw, 2rem);
+  --fs-work-cat: clamp(0.75rem, 0.94vw, 1.15rem);
+  --fs-work-more: clamp(0.9375rem, 1.15vw, 1.4rem);
+
   --lh-display: 0.92;
   --lh-h1: 1;
   --lh-heading: 1.1;
@@ -139,6 +160,7 @@
   --form-pad: clamp(1.5rem, 3.78vw, 4.5rem); /* contact form card padding: 72px */
   --about-py: clamp(4rem, 6.3vw, 7.5rem); /* About hero bottom / intro band top + bottom: 120px at 1908 */
   --field-h: clamp(3.25rem, 4.45vw, 5.6rem); /* single-line form field: 85px (frame 16) */
+  --card-pad-lg: clamp(1.25rem, 3.8vw, 4.6rem); /* included-card padding: 73px */
 
   /* Service rows (measured): hairline is α≈.2, and on hover the title moves +48px while the
    * description / tags move ±16px (a third of it). */
@@ -149,6 +171,8 @@
   --r-card: 1.5rem;
   --r-media: clamp(1rem, 1.17vw, 1.6rem); /* Work cards + Insights images: fitted 22.5px at 1916 */
   --r-testimonial: clamp(1.5rem, 2.1vw, 2.5rem); /* testimonial card: fitted 40px */
+  --r-panel: clamp(1.25rem, 1.67vw, 2.25rem); /* related-work card: ≈32px */
+  --r-step: clamp(1.125rem, 1.5vw, 1.9rem); /* process card: ≈28px */
   --r-field: clamp(0.75rem, 0.84vw, 1rem); /* form fields: fitted 16px */
   --r-pill: 999px;
 
@@ -254,6 +278,12 @@
     --fs-founder-name: clamp(1.375rem, 7vw, 2rem);
     --fs-value-word: clamp(2rem, 13vw, 6rem);
     --fs-lead-xl: clamp(1.25rem, 5.6vw, 2rem);
+    --fs-service-hero: clamp(2.25rem, 12vw, 5rem);
+    --fs-step-num: clamp(1.25rem, 6vw, 1.75rem);
+    --fs-faq: clamp(1.0625rem, 4.6vw, 1.5rem);
+    --fs-article-title: clamp(1.125rem, 5vw, 1.625rem);
+    --fs-work-cat: 0.8125rem;
+    --fs-work-more: 1rem;
     --row-shift: 0.75rem;
   }
 }

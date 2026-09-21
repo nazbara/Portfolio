@@ -3,9 +3,31 @@
  * and one oversized muted mark. Two variants:
  *  - "tile" (default): fills its (positioned) parent; the mark is the card's index number.
  *  - "portrait": a self-sized 4:5 tile for a person's photo; the mark is their initial.
+ *  - "light": a very light grey panel with a faint gold glow and no text, for slots on white sections.
  * The mark is sized with container-query units so it scales with whatever tile it sits in.
  */
-export default function PlaceholderArt({ mark, variant = 'tile' }: { mark: string; variant?: 'tile' | 'portrait' }) {
+export default function PlaceholderArt({
+  mark = '',
+  variant = 'tile',
+}: {
+  mark?: string
+  variant?: 'tile' | 'portrait' | 'light'
+}) {
+  if (variant === 'light') {
+    return (
+      <div
+        aria-hidden="true"
+        data-placeholder="light"
+        className="absolute inset-0 overflow-hidden"
+        style={{
+          backgroundImage: [
+            'radial-gradient(60% 55% at 78% 22%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%)',
+            'linear-gradient(160deg, #f4f4f3 0%, #ececeb 100%)',
+          ].join(', '),
+        }}
+      />
+    )
+  }
   const portrait = variant === 'portrait'
   return (
     <div
