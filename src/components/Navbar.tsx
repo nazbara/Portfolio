@@ -56,7 +56,7 @@ export default function Navbar() {
                         data-cursor="hover"
                         className={({ isActive }) =>
                           `inline-flex h-full items-center px-[1.17em] transition-colors duration-200 hover:text-white ${
-                            isActive ? 'text-white' : 'text-white/85'
+                            isActive ? 'font-bold text-white' : 'text-white/85'
                           }`
                         }
                       >

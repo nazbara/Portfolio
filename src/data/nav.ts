@@ -11,4 +11,5 @@ export const navItems: NavItem[] = [
   { kind: 'link', label: 'Insights', to: '/insights' },
 ]
 
-export const navCta = { label: "Let's Connect", to: '/contact' }
+/** PLACEHOLDER label — the Navbar and the mobile menu both read it. */
+export const navCta = { label: 'Start a project', to: '/contact' }

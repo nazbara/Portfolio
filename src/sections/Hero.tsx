@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import type { MouseEvent } from 'react'
-import { Link } from 'react-router-dom'
+import PillButton from '@/components/PillButton'
 import ClientStrip from '@/sections/ClientStrip'
 import { headlineLines, primaryCta, secondaryCta } from '@/data/hero'
 import { useLenisRef } from '@/hooks/useLenisRef'
@@ -81,13 +81,9 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: ease.outExpo, delay: 1.0 }}
         >
-          <Link
-            to={primaryCta.to}
-            data-cursor="hover"
-            className="inline-flex h-[3.71em] items-center rounded-full bg-paper px-[2.36em] whitespace-nowrap text-ink transition-[scale,box-shadow] duration-(--dur-base) ease-(--ease-out-expo) hover:scale-[1.03] hover:shadow-glow max-lg:w-full max-lg:justify-center"
-          >
+          <PillButton to={primaryCta.to} className="max-lg:w-full">
             {primaryCta.label}
-          </Link>
+          </PillButton>
 
           <a
             href={secondaryCta.href}

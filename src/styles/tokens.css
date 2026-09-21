@@ -32,6 +32,28 @@
    * Sampled from the reference hero (median of ~43k interior pixels across two lines). */
   --slate: #6a727f;
 
+  /* Step 6, sampled from the reference frames (median of interior pixels). */
+  --paper-soft: #f5f5f5; /* Testimonials section (frames 13/14: flat 245) */
+  --form-card-bg: #fafafc; /* contact form card (250,250,252); the fields inside it are white */
+  --field-line: #d6d6d8; /* field border (214,214,216) */
+  --footer-bg: #050505; /* footer (5,5,5) — darker than --ink and than the Services surface */
+  --footer-line: rgb(255 255 255 / 0.075); /* hairlines: 23 on 5 */
+  --footer-rule: rgb(255 255 255 / 0.18); /* vertical rule beside each link list, social borders */
+  --danger: #c0392b; /* inline form errors */
+  --danger-on-dark: #ff7f70;
+
+  /* Step 7 (About page), sampled from about-frames. */
+  --paper-warm: #f7f6f2; /* intro band (247,246,242) */
+  --cell-bg: #f8f8fa; /* team cells (248,248,250) */
+  --line-soft: #e8e8eb; /* hairlines on white: team grid, value rows (231–233) */
+  --row-hover-bg: #fafafc; /* value row on hover (250,250,252) */
+  --word-idle: #d1d4d9; /* [CRAFT]-style words at rest (209,212,217) */
+  --ink-slate: #48555d; /* team paragraph + cell descriptions on light (72,85,93) */
+  --dark-contact-bg: #111111; /* dark contact section (17,17,17) — a step above --ink */
+  --dark-field-line: rgb(255 255 255 / 0.105); /* dark form field border (42 on 17) */
+  --dark-card-line: rgb(255 255 255 / 0.075); /* dark form card border */
+  --dark-card-bg: rgb(255 255 255 / 0.04); /* dark form card fill (26 on 17) */
+
   /* ── Typography ────────────────────────────────────────────── */
   --font-family:
     'Manrope Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
@@ -47,6 +69,49 @@
   --fs-lead: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
   --fs-body: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
   --fs-small: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem);
+
+  /* Section type, measured from the reference at ~1916px. */
+  --fs-label: clamp(0.8125rem, 1.1vw, 1.3125rem); /* small uppercase section label: 21px */
+  --fs-statement: clamp(2.25rem, 4.72vw, 6rem); /* About heading: 90px, line pitch 90 (lh 1) */
+  --fs-lead-lg: clamp(1.25rem, 1.9vw, 2.3rem); /* About paragraphs: 36px light, pitch 48 */
+  --fs-section-title: clamp(2.75rem, 5.6vw, 7rem); /* Services heading: 107px */
+  --fs-row-title: clamp(1.75rem, 2.7vw, 3.35rem); /* service row title: 51.7px bold (stems ≈7px ⇒ weight 700), pitch 60 */
+  --fs-row-desc: clamp(1rem, 1.26vw, 1.5rem); /* service row description: 24px, pitch 36 */
+  --fs-tag: clamp(0.8125rem, 1.065vw, 1.3rem); /* tag pill text: 20.4px in a 44px pill */
+  --fs-lead-md: clamp(1.0625rem, 1.62vw, 1.95rem); /* Insights intro: 31px light, pitch 42 */
+  --fs-card-label: clamp(0.6875rem, 0.93vw, 1.1rem); /* Work card categories: 17.8px bold, ls .1em */
+  --fs-card-title: clamp(1.375rem, 2vw, 2.4rem); /* Work card title: 38.4px bold, ls -.03em */
+  --fs-post-meta: clamp(0.6875rem, 0.89vw, 1.05rem); /* Insights meta line: 17px semibold, ls .15em */
+  --fs-post-title: clamp(1.375rem, 1.88vw, 2.25rem); /* Insights title: 36px bold, ls -.025em, pitch 48 */
+
+  /* Testimonials (frames 13/14 @1906): quote 36px italic pitch 48, name 24px bold, role 21px, initials 28px. */
+  --fs-quote: clamp(1.25rem, 1.9vw, 2.3rem);
+  --fs-person: clamp(1rem, 1.25vw, 1.5rem);
+  --fs-role: clamp(0.875rem, 1.1vw, 1.3rem);
+  --fs-initials: clamp(1.125rem, 1.47vw, 1.75rem);
+  /* Contact (frame 15): field text 24px, checklist title 27.5px semibold / description 21px. */
+  --fs-field: clamp(1rem, 1.26vw, 1.5rem);
+  --fs-check-title: clamp(1.125rem, 1.44vw, 1.75rem);
+  --fs-check-desc: clamp(0.9375rem, 1.1vw, 1.3rem);
+  /* Footer (frames 16-20): heads 18px bold ls .11em, links 18.4px, labels 15px ls .14em, values 20px, social 15.5px bold. */
+  --fs-foot-head: clamp(0.8125rem, 0.94vw, 1.1rem);
+  --fs-foot-link: clamp(0.875rem, 0.96vw, 1.15rem);
+  --fs-foot-label: clamp(0.6875rem, 0.79vw, 0.95rem);
+  --fs-foot-value: clamp(0.9375rem, 1.05vw, 1.25rem);
+  --fs-foot-social: clamp(0.6875rem, 0.81vw, 0.95rem);
+
+  /* About page (about-frames @1908): eyebrow 18px bold ls .195em; hero 196px lh .98 (cap 141); intro lead 48px/66 light;
+   * side paragraph + team description 28px/42–44; team title 56px bold ls -.04em; team number 361px;
+   * founder name 47px bold ls -.04em; value word 172px (cap 125) ls -.075em; value description / embedded lead 45px/54 light. */
+  --fs-eyebrow: clamp(0.75rem, 0.94vw, 1.15rem);
+  --fs-about-hero: clamp(3rem, 10.27vw, 15rem);
+  --fs-intro: clamp(1.375rem, 2.5vw, 3.1rem);
+  --fs-lead-sm: clamp(1rem, 1.47vw, 1.75rem);
+  --fs-team-title: clamp(1.5rem, 2.93vw, 3.5rem);
+  --fs-team-num: clamp(9rem, 18.9vw, 24rem);
+  --fs-founder-name: clamp(1.375rem, 2.45vw, 3rem);
+  --fs-value-word: clamp(2.75rem, 9vw, 11rem);
+  --fs-lead-xl: clamp(1.25rem, 2.36vw, 2.85rem);
 
   --lh-display: 0.92;
   --lh-h1: 1;
@@ -68,9 +133,23 @@
   --gutter: clamp(1.25rem, 3.7vw, 4.5rem); /* ≈71px at 1920 */
   --section-py: clamp(4.5rem, 10vw, 9rem);
   --section-py-sm: clamp(3rem, 6vw, 5rem);
+  --section-py-lg: clamp(5rem, 10vw, 12rem); /* About / Services top + bottom: ≈191px at 1916 */
+  --footer-gutter: clamp(1rem, 1.47vw, 2rem); /* the footer runs nearly edge to edge: 28px at 1906 */
+  --card-gutter-x: clamp(1.5rem, 4.4vw, 5.25rem); /* testimonial card side padding: 84px */
+  --form-pad: clamp(1.5rem, 3.78vw, 4.5rem); /* contact form card padding: 72px */
+  --about-py: clamp(4rem, 6.3vw, 7.5rem); /* About hero bottom / intro band top + bottom: 120px at 1908 */
+  --field-h: clamp(3.25rem, 4.45vw, 5.6rem); /* single-line form field: 85px (frame 16) */
+
+  /* Service rows (measured): hairline is α≈.2, and on hover the title moves +48px while the
+   * description / tags move ±16px (a third of it). */
+  --row-line: rgb(255 255 255 / 0.2);
+  --row-shift: clamp(0.5rem, 2.5vw, 3rem);
 
   /* ── Radii ─────────────────────────────────────────────────── */
   --r-card: 1.5rem;
+  --r-media: clamp(1rem, 1.17vw, 1.6rem); /* Work cards + Insights images: fitted 22.5px at 1916 */
+  --r-testimonial: clamp(1.5rem, 2.1vw, 2.5rem); /* testimonial card: fitted 40px */
+  --r-field: clamp(0.75rem, 0.84vw, 1rem); /* form fields: fitted 16px */
   --r-pill: 999px;
 
   /* ── Shadows ───────────────────────────────────────────────── */
@@ -79,6 +158,8 @@
   --sh-float: 0 10px 32px rgb(10 10 10 / 0.18), 0 2px 6px rgb(10 10 10 / 0.1); /* floating pill nav */
   --sh-glow: 0 0 30px rgb(255 255 255 / 0.16); /* light CTA pill on dark; fitted to the reference halo */
   --sh-glow-strong: 0 0 44px rgb(255 255 255 / 0.34); /* CTA hover */
+  --sh-form: 0 10px 40px rgb(0 0 0 / 0.18); /* contact form card, fitted to the falloff under its bottom edge */
+  --sh-arrow: 0 4px 14px rgb(0 0 0 / 0.12); /* testimonial arrow buttons */
 
   /* ── Motion ────────────────────────────────────────────────── */
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
@@ -139,6 +220,41 @@
     --header-top: 0.875rem;
     --scrim-h: 6.25rem; /* the header is shorter on phones, so the scrim is too */
     --fs-display: clamp(3.25rem, 15vw, 8.7rem); /* ~15vw on phones/tablets, stacked hero lines */
+    --fs-statement: clamp(2.25rem, 10vw, 5rem);
+    --fs-lead-lg: clamp(1.125rem, 4.6vw, 1.75rem);
+    --fs-section-title: clamp(2.75rem, 13vw, 6rem);
+    --fs-row-title: clamp(1.75rem, 7vw, 3rem);
+    --fs-row-desc: clamp(1rem, 4.2vw, 1.375rem);
+    --fs-tag: clamp(0.8125rem, 3.4vw, 1.05rem);
+    --fs-lead-md: clamp(1.0625rem, 4.4vw, 1.5rem);
+    --fs-card-label: clamp(0.6875rem, 3vw, 0.9rem);
+    --fs-card-title: clamp(1.375rem, 6.2vw, 2rem);
+    --fs-post-meta: clamp(0.6875rem, 3vw, 0.9rem);
+    --fs-post-title: clamp(1.375rem, 6vw, 1.875rem);
+    --fs-quote: clamp(1.125rem, 4.9vw, 1.75rem);
+    --fs-person: clamp(1rem, 4.4vw, 1.375rem);
+    --fs-role: clamp(0.875rem, 3.7vw, 1.125rem);
+    --fs-initials: clamp(1rem, 4.4vw, 1.5rem);
+    --fs-field: clamp(1rem, 4.3vw, 1.25rem);
+    --fs-check-title: clamp(1.125rem, 5vw, 1.5rem);
+    --fs-check-desc: clamp(0.9375rem, 4vw, 1.125rem);
+    --fs-foot-head: clamp(0.8125rem, 3.5vw, 1rem);
+    --fs-foot-link: clamp(0.9375rem, 4vw, 1.125rem);
+    --fs-foot-label: clamp(0.6875rem, 3vw, 0.875rem);
+    --fs-foot-value: clamp(0.9375rem, 4.2vw, 1.25rem);
+    --fs-foot-social: clamp(0.75rem, 3.2vw, 0.9375rem);
+    --form-pad: 1.25rem;
+    --about-py: clamp(3rem, 12vw, 5rem);
+    --fs-eyebrow: 0.8125rem;
+    --fs-about-hero: clamp(2.5rem, 16vw, 8rem);
+    --fs-intro: clamp(1.375rem, 6.4vw, 2.1rem);
+    --fs-lead-sm: clamp(1rem, 4.4vw, 1.375rem);
+    --fs-team-title: clamp(1.5rem, 8vw, 2.5rem);
+    --fs-team-num: clamp(7rem, 42vw, 13rem);
+    --fs-founder-name: clamp(1.375rem, 7vw, 2rem);
+    --fs-value-word: clamp(2rem, 13vw, 6rem);
+    --fs-lead-xl: clamp(1.25rem, 5.6vw, 2rem);
+    --row-shift: 0.75rem;
   }
 }
 
@@ -153,6 +269,9 @@
   --fg: var(--ink);
   --fg-muted: var(--grey-600);
   --fg-dim: var(--slate); /* dimmed line of a stacked headline, small labels */
+  --fg-soft: #272b33; /* body copy a step lighter than --fg (About paragraphs, sampled) */
+  --fg-quiet: #6f6e7b; /* cool secondary text: intro side paragraph, values subline (112,110,123) */
+  --fg-label: var(--grey-500); /* SectionLabel text */
   --line: var(--grey-200);
   --surface: var(--grey-100);
 }
@@ -163,6 +282,9 @@
   --fg: var(--paper);
   --fg-muted: var(--grey-400);
   --fg-dim: var(--slate);
+  --fg-soft: var(--grey-300);
+  --fg-quiet: #92a5b9; /* cool secondary text on dark: founder roles, embedded paragraph (≈143,167,191) */
+  --fg-label: #b7b7b7; /* SectionLabel text on dark (183) */
   --line: var(--grey-800);
   --surface: var(--grey-900);
 }

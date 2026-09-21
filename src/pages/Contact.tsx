@@ -1,9 +1,6 @@
+import ContactSection from '@/sections/Contact'
+
+/** /contact: the same section as on Home, with the page's h1 and room for the header. */
 export default function Contact() {
-  return (
-    <section data-theme="light" className="section-y">
-      <div className="site-container">
-        <h1>Contact</h1>
-      </div>
-    </section>
-  )
+  return <ContactSection page />
 }

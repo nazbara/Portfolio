@@ -2,6 +2,10 @@
 @import './tokens.css';
 @import '@fontsource-variable/manrope';
 @import 'lenis/dist/lenis.css';
+/* Swiper's stylesheets are unlayered, which would beat every Tailwind utility; layering them puts them below. */
+@import 'swiper/css' layer(components);
+@import 'swiper/css/a11y' layer(components);
+@import 'swiper/css/keyboard' layer(components);
 
 /* Tailwind's `dark:` follows [data-theme="dark"], never the OS setting. */
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
@@ -34,8 +38,22 @@
   --color-fg: var(--fg);
   --color-fg-muted: var(--fg-muted);
   --color-fg-dim: var(--fg-dim);
+  --color-fg-soft: var(--fg-soft);
   --color-line: var(--line);
   --color-surface: var(--surface);
+  --color-paper-soft: var(--paper-soft);
+  --color-form-card: var(--form-card-bg);
+  --color-field-line: var(--field-line);
+  --color-footer: var(--footer-bg);
+  --color-danger: var(--danger);
+  --color-danger-on-dark: var(--danger-on-dark);
+  --color-fg-quiet: var(--fg-quiet);
+  --color-fg-label: var(--fg-label);
+  --color-paper-warm: var(--paper-warm);
+  --color-cell: var(--cell-bg);
+  --color-line-soft: var(--line-soft);
+  --color-ink-slate: var(--ink-slate);
+  --color-dark-contact: var(--dark-contact-bg);
 
   --font-sans: var(--font-family);
 
@@ -59,6 +77,8 @@
   --shadow-card: var(--sh-card);
   --shadow-float: var(--sh-float);
   --shadow-glow: var(--sh-glow);
+  --shadow-form: var(--sh-form);
+  --shadow-arrow: var(--sh-arrow);
 }
 
 /* Hero display role: fluid, heavy, uppercase. Usage: <h1 class="type-display"> */
@@ -91,6 +111,204 @@
 
   @media (width >= 64rem) {
     mask-image: linear-gradient(to right, transparent 0%, #000 38%), linear-gradient(to top, transparent 0%, #000 44%);
+  }
+}
+
+/*
+ * Services row. One definition of the "flipped" state — white fill, ink text, dark tag
+ * borders, content nudged right — shared by :hover (hover-capable devices only), :active
+ * (touch: press feedback instead of a sticky hover) and :focus-visible (keyboard).
+ * The row's own background/colour transition; its children read the variables and
+ * transition their own transform / colour. Timing is --dur-base with --ease-standard: a slow-ish
+ * start, which is also what frame 07 of the reference implies (both rows caught mid-transition
+ * at 7% / 93% — a rare capture with a fast-start ease). Reduced motion collapses the durations.
+ */
+@layer components {
+  .service-row {
+    --row-bg: transparent;
+    --row-fg: var(--fg);
+    --row-desc: var(--fg-muted);
+    --row-tag-line: rgb(255 255 255 / 0.7);
+    --row-move: 0;
+    background-color: var(--row-bg);
+    color: var(--row-fg);
+    transition:
+      background-color var(--dur-base) var(--ease-standard),
+      color var(--dur-base) var(--ease-standard);
+  }
+
+  .service-row:focus-visible,
+  .service-row:active {
+    --row-bg: var(--paper);
+    --row-fg: var(--ink);
+    --row-desc: var(--grey-600);
+    --row-tag-line: rgb(10 10 10 / 0.7);
+    --row-move: 1;
+  }
+
+  @media (hover: hover) {
+    .service-row:hover {
+      --row-bg: var(--paper);
+      --row-fg: var(--ink);
+      --row-desc: var(--grey-600);
+      --row-tag-line: rgb(10 10 10 / 0.7);
+      --row-move: 1;
+    }
+  }
+
+  .service-row:focus-visible {
+    outline-offset: -4px;
+  }
+
+  .service-row__col {
+    transform: translateX(calc(var(--row-move) * var(--row-shift) * var(--row-mult, 1)));
+    transition: transform var(--dur-base) var(--ease-standard);
+    will-change: transform;
+  }
+
+  .service-row__desc {
+    color: var(--row-desc);
+    transition: color var(--dur-base) var(--ease-standard);
+  }
+
+  .service-row__tag {
+    border-color: var(--row-tag-line);
+    transition: border-color var(--dur-base) var(--ease-standard);
+  }
+}
+
+/*
+ * About page: team cells and value rows. Same pattern as .service-row — one flipped state shared by
+ * :hover (hover-capable devices only), :active (touch) and :focus-visible (keyboard), with the
+ * children reading custom properties so each transitions its own colour / transform.
+ *
+ * .team-cell   → ink fill, white title, cool-blue description, faint number (300–350ms, --ease-standard).
+ * .value-row   → word and arrow darken from pale grey, row fill goes #fafafc, arrow slides 12px, and a 2px ink
+ *                line sweeps left→right along the BOTTOM edge (frames 11–13 show it at the row's bottom edge,
+ *                mid-sweep at ≈50–57% while the word is ≈46% of the way from pale grey to ink — so the
+ *                colours and the sweep share one timing: 600ms --ease-standard).
+ * Reduced motion collapses every --dur-* token to 1ms, so all of it becomes an instant state change.
+ */
+@layer components {
+  .team-cell {
+    --cell-fill: var(--cell-bg);
+    --cell-title: var(--ink);
+    --cell-desc: var(--ink-slate);
+    --cell-num: #ebebed;
+    background-color: var(--cell-fill);
+    transition: background-color var(--dur-base) var(--ease-standard);
+  }
+
+  .team-cell:focus-visible,
+  .team-cell:active {
+    --cell-fill: var(--ink);
+    --cell-title: #fff;
+    --cell-desc: #8ba0b5;
+    --cell-num: #0e0e0e;
+  }
+
+  @media (hover: hover) {
+    .team-cell:hover {
+      --cell-fill: var(--ink);
+      --cell-title: #fff;
+      --cell-desc: #8ba0b5;
+      --cell-num: #0e0e0e;
+    }
+  }
+
+  .team-cell:focus-visible {
+    outline-offset: -4px;
+  }
+
+  .team-cell__title,
+  .team-cell__desc,
+  .team-cell__num {
+    transition: color var(--dur-base) var(--ease-standard);
+  }
+
+  .team-cell__title {
+    color: var(--cell-title);
+  }
+
+  .team-cell__desc {
+    color: var(--cell-desc);
+  }
+
+  .team-cell__num {
+    color: var(--cell-num);
+  }
+
+  .value-row {
+    --row-fill: transparent;
+    --row-word: var(--word-idle);
+    --row-arrow-x: 0px;
+    --row-sweep: 0;
+    position: relative;
+    background-color: var(--row-fill);
+    transition: background-color var(--dur-slow) var(--ease-standard);
+  }
+
+  .value-row::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--ink);
+    transform: scaleX(var(--row-sweep));
+    transform-origin: right center; /* leaving retracts toward the right… */
+    transition: transform var(--dur-slow) var(--ease-standard);
+    pointer-events: none;
+  }
+
+  .value-row:focus-visible,
+  .value-row:active {
+    --row-fill: var(--row-hover-bg);
+    --row-word: var(--ink);
+    --row-arrow-x: 12px;
+    --row-sweep: 1;
+  }
+
+  .value-row:focus-visible::after,
+  .value-row:active::after {
+    transform-origin: left center; /* …entering sweeps in from the left */
+  }
+
+  @media (hover: hover) {
+    .value-row:hover {
+      --row-fill: var(--row-hover-bg);
+      --row-word: var(--ink);
+      --row-arrow-x: 12px;
+      --row-sweep: 1;
+    }
+
+    .value-row:hover::after {
+      transform-origin: left center;
+    }
+  }
+
+  .value-row:focus-visible {
+    outline-offset: -4px;
+  }
+
+  .value-row__word {
+    color: var(--row-word);
+    transition: color var(--dur-slow) var(--ease-standard);
+  }
+
+  .value-row__arrow {
+    color: var(--row-word);
+    transform: translateX(var(--row-arrow-x));
+    transition:
+      color var(--dur-slow) var(--ease-standard),
+      transform var(--dur-slow) var(--ease-standard);
+  }
+
+  /* Phones: the arrow doesn't slide (and there's no hover to slide it on). */
+  @media (width < 64rem) {
+    .value-row {
+      --row-arrow-x: 0px !important;
+    }
   }
 }
 

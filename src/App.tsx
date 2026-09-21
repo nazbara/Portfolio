@@ -6,6 +6,7 @@ import Home from '@/pages/Home'
 import InsightDetail from '@/pages/InsightDetail'
 import Insights from '@/pages/Insights'
 import NotFound from '@/pages/NotFound'
+import Privacy from '@/pages/Privacy'
 import ServiceDetail from '@/pages/ServiceDetail'
 import Work from '@/pages/Work'
 import WorkDetail from '@/pages/WorkDetail'
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="insights" element={<Insights />} />
           <Route path="insights/:slug" element={<InsightDetail />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="privacy" element={<Privacy />} />
           <Route path="services/:slug" element={<ServiceDetail />} />
           <Route path="*" element={<NotFound />} />
         </Route>
