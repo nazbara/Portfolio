@@ -1,6 +1,7 @@
 import { useId } from 'react'
 import { clients, type Client } from '@/data/clients'
 import { clientStripLabel } from '@/data/hero'
+import { getClientLogo } from '@/lib/media'
 
 /** One copy of the cards. The marquee renders two; the second is aria-hidden. */
 function Track({ items, copy = false }: { items: Client[]; copy?: boolean }) {
@@ -9,14 +10,16 @@ function Track({ items, copy = false }: { items: Client[]; copy?: boolean }) {
       aria-hidden={copy || undefined}
       className={`flex shrink-0 gap-(--card-gap) pr-(--card-gap) ${copy ? 'motion-reduce:hidden' : ''}`}
     >
-      {items.map((client) => (
+      {items.map((client) => {
+        const logo = client.logo ?? getClientLogo(client.name)
+        return (
         <li
           key={client.name}
           className="flex h-(--card-h) w-(--card-w) shrink-0 items-center justify-center rounded-[1.125rem] bg-paper px-[calc(var(--card-w)*0.08)]"
         >
-          {client.logo ? (
+          {logo ? (
             <img
-              src={client.logo}
+              src={logo}
               alt={copy ? '' : client.name}
               loading="lazy"
               draggable={false}
@@ -28,7 +31,8 @@ function Track({ items, copy = false }: { items: Client[]; copy?: boolean }) {
             </span>
           )}
         </li>
-      ))}
+        )
+      })}
     </ul>
   )
 }

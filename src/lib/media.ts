@@ -37,3 +37,14 @@ const aboutImages = bySlug(
 export const getTeamImage = (slug: string): string | undefined => teamImages.get(slug)
 /** src/assets/about/<name>.webp — About page pictures, e.g. "last-img" (the Long-term partners background). */
 export const getAboutImage = (name: string): string | undefined => aboutImages.get(name)
+
+const clientLogos = bySlug(
+  import.meta.glob<string>('../assets/clients/*.webp', { eager: true, import: 'default' }),
+)
+
+/**
+ * src/assets/clients/<slug>.webp, where the slug is the client's name in lower case with every run of
+ * non-alphanumeric characters turned into one hyphen: "Client 01" → client-01, "Acme & Sons" → acme-sons.
+ */
+export const getClientLogo = (name: string): string | undefined =>
+  clientLogos.get(name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''))

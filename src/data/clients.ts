@@ -1,7 +1,9 @@
 /**
  * PLACEHOLDER CLIENTS — replace with the real client list.
- * `logo` is optional: when it's missing the card shows `name` as muted text. Real logos go in
- * src/assets/clients/ (run `pnpm optimize:images` after dropping PNGs in) and get imported here.
+ * Logos are picked up by file name — no code needed. Drop `<slug>.png` (or .jpg / .webp) into
+ * src/assets/clients/ and run `pnpm optimize:images`; the slug is the client's `name` in lower case with
+ * spaces/symbols turned into hyphens ("Client 01" → client-01.png, "Acme & Sons" → acme-sons.png).
+ * No file ⇒ the card shows `name` as muted text. `logo` is an optional explicit override.
  */
 export type Client = {
   name: string

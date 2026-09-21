@@ -11,8 +11,9 @@
  * Quality 82, alpha kept, dimensions untouched, metadata stripped. Each WebP is verified
  * (same size, alpha preserved, PSNR) BEFORE its original is moved — a failed check leaves
  * the original in place and exits non-zero. An existing .webp with the same base name is never
- * overwritten (that includes two sources like a.png + a.jpg): the source is left alone and the
- * run exits non-zero. Archiving never overwrites an earlier archived file either.
+ * overwritten when the source is NEWER than it (e.g. you swapped in a new logo): the source is left
+ * alone and the run exits non-zero. A source that is not newer than its .webp is skipped as already
+ * converted. Archiving never overwrites an earlier archived file either.
  */
 import { access, mkdir, readdir, rename, rm, stat } from 'node:fs/promises'
 import path from 'node:path'
@@ -79,6 +80,9 @@ for await (const file of walk(assetsDir)) {
   const out = file.replace(SOURCE, '.webp')
   const before = (await stat(file)).size
 
+  // Already converted (e.g. with --keep, so the original stays next to its .webp): nothing to do.
+  if ((await exists(out)) && (await stat(out)).mtimeMs >= (await stat(file)).mtimeMs) continue
+
   if (await exists(out)) {
     failed = true
     console.error(`✗ ${rel}: ${path.basename(out)} already exists — not overwriting, source left in place`)
@@ -129,6 +133,6 @@ for await (const file of walk(assetsDir)) {
 }
 
 if (rows.length) console.table(rows)
-else if (!failed && !dryRun) console.log('No PNG / JPG files under src/assets — nothing to do.')
+else if (!failed && !dryRun) console.log('Nothing to convert under src/assets (no PNG / JPG, or all already have a .webp).')
 if (!dryRun && rows.length && !keep) console.log(`Originals moved to ${path.relative(root, originalsDir)}${path.sep}`)
 process.exit(failed ? 1 : 0)
