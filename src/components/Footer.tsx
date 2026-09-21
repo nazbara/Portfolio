@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { companyLinks, phoneHref, privacyHref, site } from '@/data/site'
 import { serviceGroups, serviceHref } from '@/data/services'
-import { logoMark, logoWordmark } from '@/lib/assets'
+import CapybaraWind from '@/components/CapybaraWind'
+import { logoWordmark } from '@/lib/assets'
 
 /** Ink box of logo-wordmark.webp inside its 2172×724 canvas (alpha > 40), so the crop can be exact. */
 const WORDMARK = { w: 2172, h: 724, inkX: 24, inkY: 192, inkW: 2088, inkH: 371 }
@@ -53,12 +54,11 @@ export default function Footer() {
         <div className="grid gap-y-14 lg:grid-cols-[minmax(0,1fr)_65.95%]">
           {/* Brand block */}
           <div>
-            <img
-              src={logoMark}
-              alt={site.name}
-              width={1286}
-              height={1223}
-              className="h-32 w-auto lg:h-[7.9vw] lg:max-h-[10rem]"
+            {/* Replaces the static logo mark (logoMark is still exported from lib/assets.ts; the file is kept and is the WebGL fallback).
+                The canvas has empty margin around the artwork (7% left, 9% top/bottom), which the negative margins take back. */}
+            <CapybaraWind
+              label={`${site.name} mascot: a capybara with fur blowing in the wind, blinking`}
+              className="block w-(--w) -mt-[calc(var(--w)*0.09)] -mb-[calc(var(--w)*0.09)] -ml-[calc(var(--w)*0.07)] [--w:12rem] lg:[--w:min(10.2vw,12.5rem)]"
             />
 
             <div className="mt-10 space-y-[1.9vw] max-lg:space-y-8 lg:mt-[2.7vw]">

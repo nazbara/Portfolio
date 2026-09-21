@@ -18,5 +18,15 @@ import logoFull from '@/assets/brand/logo-full.webp'
 import logoMark from '@/assets/brand/logo-mark.webp'
 import logoWordmark from '@/assets/brand/logo-wordmark.webp'
 import heroPhoto from '@/assets/hero/hero-pic.webp'
+import mascotBase from '@/assets/mascot/capybara-base.webp'
+import mascotEyeClosed from '@/assets/mascot/capybara-eye-closed.webp'
+import mascotEyeMask from '@/assets/mascot/capybara-eye-mask.webp'
+import mascotWindMap from '@/assets/mascot/capybara-wind-map.webp'
 
-export { heroPhoto, logoFull, logoMark, logoWordmark }
+export { heroPhoto, logoFull, logoMark, logoWordmark, mascotBase, mascotEyeClosed, mascotEyeMask, mascotWindMap }
+
+/*
+ * mascot*: the four textures of the WebGL capybara in the footer (src/assets/mascot, extracted from
+ * capybara-wind.html). base = artwork (1286×1223, lossy WebP); windMap / eyeClosed / eyeMask are DATA
+ * maps read by the shader, so they are LOSSLESS WebP — never run them through `pnpm optimize:images`.
+ */
