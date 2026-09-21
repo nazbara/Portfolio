@@ -11,6 +11,49 @@
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 /*
+ * Page scrollbar: no track colour, just a dark-grey rounded thumb, 10px wide (sampled from home-02: thumb
+ * ≈50,50,50). A transparent track shows the page canvas, so the canvas (html) is ink: the strip blends
+ * into the dark site instead of showing the white body behind it.
+ * Unlayered and after the tokens import, so `color-scheme: dark` beats tokens.css's `:root { color-scheme:
+ * light }` (sections that are data-theme="light" still set their own color-scheme for their own controls).
+ */
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background-color: #0a0a0a;
+}
+
+/* Firefox — and any browser without ::-webkit-scrollbar. In Chrome 121+ the standard properties would
+ * make it ignore the ::-webkit-scrollbar rules below (no rounded thumb, no hover), so they're fenced off. */
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #323232 transparent;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #323232;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #505050;
+}
+
+/*
  * Expose tokens as Tailwind utilities. `inline` makes utilities point at the
  * token itself (var(--bg)) instead of a root-level copy, which is what lets
  * `bg-canvas` / `text-fg` flip inside a [data-theme] section.
