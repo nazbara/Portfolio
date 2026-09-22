@@ -57,32 +57,13 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
     </>
   )
 
-  const className =
-    'group relative isolate block size-full overflow-hidden rounded-(--r-media) bg-grey-900 text-paper'
-
-  if (item.link) {
-    return (
-      <a
-        href={item.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-cursor="view"
-        data-cursor-label="View"
-        draggable={false}
-        className={className}
-      >
-        {content}
-      </a>
-    )
-  }
-
   return (
     <Link
-      to={`/work/${item.slug}`}
+      to={`/work#${item.slug}`}
       data-cursor="view"
       data-cursor-label="View"
       draggable={false}
-      className={className}
+      className="group relative isolate block size-full overflow-hidden rounded-(--r-media) bg-grey-900 text-paper"
     >
       {content}
     </Link>
