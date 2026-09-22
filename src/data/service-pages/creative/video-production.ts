@@ -16,14 +16,14 @@ export const videoProductionPage: ServicePage = {
   includes: {
     label: 'Scope',
     heading: "What's in the package",
-    intro: 'Placeholder: every engagement is scoped to your goals. These are the building blocks we combine.',
-    items: ['Placeholder: discovery and research', 'Placeholder: strategy and planning', 'Placeholder: design and build', 'Placeholder: launch and support'],
+    intro: 'Every message is crafted to build trust and authority across all your stakeholder groups.',
+    items: ['Concept development and scripting', 'Shoot production and direction', 'Editing and post-production', 'Short-form and campaign video cutdowns'],
   },
   process: {
     label: 'Process',
     heading: 'Step by step',
-    intro: 'Placeholder: a clear path from first conversation to a result your team can run with.',
-    steps: ['Discovery and research', 'Planning and direction', 'Design and build', 'Launch and handover'],
+    intro: 'A strategic approach to unifying your corporate voice and messaging framework.',
+    steps: ['Concept and scripting', 'Pre-production planning', 'Shoot', 'Edit, post-production and delivery'],
   },
   faq: [
     { q: 'How many videos can you get from one shoot day?', a: 'We plan each shoot to output 10+ platform-native cuts, not just the one hero video.' },
