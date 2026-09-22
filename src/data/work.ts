@@ -18,7 +18,7 @@ export const workItems: WorkItem[] = [
   {
     slug: 'sample-project-01',
     title: 'Sample Project 01',
-    categories: ['Brand Identity', 'Web Design'],
+    categories: ['Brand Identity', 'UI/UX Design'],
     summary: 'Placeholder summary — a short line about the brief, the approach and the result.',
   },
   {
@@ -36,7 +36,7 @@ export const workItems: WorkItem[] = [
   {
     slug: 'sample-project-04',
     title: 'Sample Project 04',
-    categories: ['Web Design'],
+    categories: ['UI/UX Design'],
     summary: 'Placeholder summary — a short line about the brief, the approach and the result.',
   },
   {

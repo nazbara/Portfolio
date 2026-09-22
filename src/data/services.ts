@@ -40,7 +40,7 @@ export const serviceGroups: ServiceGroup[] = [
     title: 'Digital',
     description: 'Websites and products that load fast, read well and stay simple to keep improving.',
     items: [
-      { slug: 'web-design', label: 'Web Design' },
+      { slug: 'web-design', label: 'UI/UX Design' },
       { slug: 'web-development', label: 'Web Development' },
       { slug: 'landing-pages', label: 'Landing Pages' },
     ],
@@ -51,8 +51,18 @@ export const serviceGroups: ServiceGroup[] = [
     description: 'Search, social and paid programmes measured against the outcomes you actually care about.',
     items: [
       { slug: 'seo', label: 'SEO' },
-      { slug: 'social-media', label: 'Social Media' },
+      { slug: 'social-media', label: 'SMMA' },
       { slug: 'performance-marketing', label: 'Performance Marketing' },
+    ],
+  },
+  {
+    slug: 'ai',
+    title: 'AI Vision',
+    description: 'Intelligent systems and automation that put AI to work inside your product and processes.',
+    items: [
+      { slug: 'ml-systems', label: 'ML Systems' },
+      { slug: 'ai-integration', label: 'AI Integration' },
+      { slug: 'rag-pipelines', label: 'RAG Pipelines' },
     ],
   },
 ]
