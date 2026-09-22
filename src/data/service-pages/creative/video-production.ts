@@ -4,26 +4,26 @@ import type { ServicePage } from '../types'
 export const videoProductionPage: ServicePage = {
   slug: 'video-production',
   title: 'Video Production',
-  hero: { label: 'Creative', lines: ['VIDEO PRODUCTION', 'BUILT AROUND', 'YOUR GOALS.'] },
+  hero: { label: 'Creative', lines: ['Video planned to', 'perform, not just look', 'good.'] },
   approach: {
     label: 'Approach',
     paragraphs: [
-      'Placeholder: how we approach video production. We start with your goals, agree what good looks like and only then decide what to make.',
-      'Placeholder: what you can expect from working with us: clear communication, a small senior team and work that is easy to keep improving.',
+      'Video production here means planning video around where and how your audience will actually watch it, from the first concept through the final cut. A beautiful film that does not fit its channel is a wasted budget. We plan for distribution before we plan the shoot.',
+      'One well-planned shoot can feed a whole campaign. We build for that, capturing the longer film and the short cuts together instead of going back for more.',
     ],
     cta: { label: 'Talk to us', to: '/contact' },
   },
   includes: {
     label: 'Scope',
     heading: "What's in the package",
-    intro: 'Placeholder: every engagement is scoped to your goals. These are the building blocks we combine.',
-    items: ['Placeholder: discovery and research', 'Placeholder: strategy and planning', 'Placeholder: design and build', 'Placeholder: launch and support'],
+    intro: 'Every message is crafted to build trust and authority across all your stakeholder groups.',
+    items: ['Concept development and scripting', 'Shoot production and direction', 'Editing and post-production', 'Short-form and campaign video cutdowns'],
   },
   process: {
     label: 'Process',
     heading: 'Step by step',
-    intro: 'Placeholder: a clear path from first conversation to a result your team can run with.',
-    steps: ['Discovery and research', 'Planning and direction', 'Design and build', 'Launch and handover'],
+    intro: 'A strategic approach to unifying your corporate voice and messaging framework.',
+    steps: ['Concept and scripting', 'Pre-production planning', 'Shoot', 'Edit, post-production and delivery'],
   },
   faq: [
     { q: 'Placeholder: what is included in video production?', a: 'Placeholder answer. One or two sentences that answer the question plainly.' },
