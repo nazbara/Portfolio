@@ -480,8 +480,8 @@ html {
   }
 
   ::selection {
-    background-color: var(--accent);
-    color: var(--on-accent);
+    background-color: var(--paper);
+    color: var(--ink);
   }
 
   :focus-visible {
