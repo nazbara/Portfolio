@@ -178,7 +178,7 @@ export const workDetailPages: WorkDetailPage[] = [
     },
     approach: {
       label: 'Our Approach',
-      heading: 'Design That Gets Out Of The Way',
+      heading: 'Design Gets Out Of The Way',
       intro:
         'We kept the interface quiet and let the work carry the page — clear typography, generous spacing and a navigation that gets a visitor to a project in one click.',
       cards: [
