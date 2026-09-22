@@ -14,7 +14,7 @@ export default function Home() {
       <Services />
       <Work />
       <Insights />
-      <Testimonials />
+      <Testimonials label="What Our Clients Say" />
       <Contact />
     </>
   )

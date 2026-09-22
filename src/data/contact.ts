@@ -9,11 +9,11 @@ export const contactIntro = "Tell us a little about it and we'll reply within on
 export const contactChecklist = [
   {
     title: 'Project scoping',
-    description: 'Placeholder: a one-line note on how the first conversation shapes the brief.',
+    description: 'A one-line note on how the first conversation shapes the brief.',
   },
   {
     title: 'Team and process',
-    description: 'Placeholder: a one-line note on who you will work with and how the work runs.',
+    description: 'A one-line note on who you will work with and how the work runs.',
   },
 ] as const
 

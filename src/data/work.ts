@@ -10,7 +10,7 @@ export interface WorkItem {
   summary: string
 }
 
-export const workHeading = 'Selected work'
+export const workHeading = 'Our work'
 
 export const workCta = { label: 'View all work', to: '/work' } as const
 

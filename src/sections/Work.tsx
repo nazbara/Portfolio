@@ -111,7 +111,7 @@ export default function Work() {
             freeMode={false}
             grabCursor
             keyboard={{ enabled: true, onlyInViewport: true }}
-            a11y={{ containerMessage: 'Selected work', slideLabelMessage: 'Project {{index}} of {{slidesLength}}' }}
+            a11y={{ containerMessage: 'Our work', slideLabelMessage: 'Project {{index}} of {{slidesLength}}' }}
             onSwiper={(s) => {
               setSwiper(s)
               setCount(s.snapGrid.length)

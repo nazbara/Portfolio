@@ -12,7 +12,7 @@ export type ServiceItem = { slug: string; label: string }
 export type ServiceGroup = { slug: string; title: string; description: string; items: ServiceItem[] }
 
 /** PLACEHOLDER heading for the Services section. */
-export const servicesHeading = 'What we do.'
+export const servicesHeading = 'Services.'
 
 export const serviceGroups: ServiceGroup[] = [
   {
