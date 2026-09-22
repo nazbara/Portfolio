@@ -32,9 +32,9 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      'Placeholder testimonial four. Another sample of a short paragraph, only there to give the dots something to count. Real quotes should mention the result in plain words.',
-    name: 'Sample Client D',
-    role: 'Placeholder Role, Sample Company',
+      'We had a great experience working with the Nezbara team, especially Tharun and Sanjay, on the development of our JCS iLEARN platform. What stood out was their ability to understand our vision and our audience, and to deliver a polished, easy-to-use platform without compromising on technical quality. Throughout the development process, we had several rounds of feedback, changes, and refinements, and the team was always quick to respond and attentive to detail in incorporating them. They listened closely to what we needed, offered smart solutions where we were unsure, and consistently focused on creating an engaging experience for our learners. Tharun and Sanjay have been a reliable and supportive team to work with. We truly appreciate their technical skill, responsiveness, and commitment to getting the details right, and we confidently recommend Nezbara as a technology partner. We look forward to working with them again on future projects.',
+    name: 'Raghul J C',
+    role: 'Founder & CEO, JCS iLEARN LLP.',
   },
   {
     quote:
