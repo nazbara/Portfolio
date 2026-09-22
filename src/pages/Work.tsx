@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import PillButton from '@/components/PillButton'
 import PlaceholderArt from '@/components/PlaceholderArt'
 import Reveal from '@/components/Reveal'
@@ -9,25 +9,21 @@ import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 import { getWorkImage } from '@/lib/media'
 
 /**
- * Grid card: full-bleed image, dark gradient overlay, categories + title + "View site" bottom-left.
+ * Grid card: full-bleed image, dark gradient overlay, categories + title + "View project" bottom-left.
  * The image defaults to grayscale and turns to color on hover/focus (its own group only — sibling
  * cards are untouched, since Tailwind's group-hover only matches descendants of the hovered
- * element). `isActive` forces color via an inline style (which always wins over the `grayscale`
- * utility class), used for the few seconds after landing here from the home page carousel.
+ * element). The whole card links to the project's own case-study page.
  */
-function GridCard({ item, index, isActive }: { item: WorkItem; index: number; isActive: boolean }) {
+function GridCard({ item, index }: { item: WorkItem; index: number }) {
   const image = getWorkImage(item.slug)
 
   return (
-    <a
-      id={`work-${item.slug}`}
-      href={item.link}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Link
+      to={`/work/${item.slug}`}
       data-cursor="view"
       data-cursor-label="View"
       draggable={false}
-      className="group relative isolate block aspect-[4/5] scroll-mt-[calc(var(--header-h)+2rem)] overflow-hidden rounded-(--r-media) bg-grey-900 text-paper"
+      className="group relative isolate block aspect-[4/5] overflow-hidden rounded-(--r-media) bg-grey-900 text-paper"
     >
       <div className="absolute inset-0 transition-transform duration-(--dur-slow) ease-(--ease-out-quart) motion-safe:group-hover:scale-[1.04]">
         {image ? (
@@ -37,7 +33,6 @@ function GridCard({ item, index, isActive }: { item: WorkItem; index: number; is
             draggable={false}
             loading="lazy"
             decoding="async"
-            style={isActive ? { filter: 'grayscale(0)' } : undefined}
             className="size-full grayscale object-cover transition-[filter] duration-500 ease-out select-none group-hover:grayscale-0 group-focus-visible:grayscale-0"
           />
         ) : (
@@ -62,28 +57,24 @@ function GridCard({ item, index, isActive }: { item: WorkItem; index: number; is
           {item.title}
         </h3>
         <p className="mt-3 flex items-center gap-[0.4em] text-(length:--fs-work-more) leading-[1.3] font-semibold tracking-[0.02em] text-white/85 uppercase">
-          View site
-          <span aria-hidden="true" className="transition-transform duration-(--dur-base) ease-(--ease-standard) group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-            ↗
+          View project
+          <span aria-hidden="true" className="transition-transform duration-(--dur-base) ease-(--ease-standard) group-hover:translate-x-1">
+            →
           </span>
         </p>
       </div>
-    </a>
+    </Link>
   )
 }
 
 /**
  * /work — dark hero (label + two-line heading + subtext) over a light section: a filter pill row
  * ("All" + every category found in the data, derived on the fly) with a live project count, then
- * a 3/2/1-column grid of GridCards. Arriving with a hash (from the home carousel's `/work#slug`
- * links) scrolls the matching card into view and holds it in color for a few seconds so it's
- * obvious which one was clicked.
+ * a 3/2/1-column grid of GridCards, each linking to its own /work/:slug case-study page.
  */
 export default function Work() {
   useDocumentTitle('Work | Nezbara')
-  const location = useLocation()
   const [activeCategory, setActiveCategory] = useState('All')
-  const [activeSlug, setActiveSlug] = useState<string | null>(null)
 
   const categories = useMemo(() => {
     const set = new Set<string>()
@@ -95,26 +86,6 @@ export default function Work() {
     () => (activeCategory === 'All' ? workItems : workItems.filter((item) => item.categories.includes(activeCategory))),
     [activeCategory],
   )
-
-  useEffect(() => {
-    const slug = location.hash.replace('#', '')
-    if (!slug) return
-
-    const timer = setTimeout(() => {
-      const el = document.getElementById(`work-${slug}`)
-      if (!el) return
-      setActiveSlug(slug)
-      el.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    }, 80)
-
-    return () => clearTimeout(timer)
-  }, [location.hash])
-
-  useEffect(() => {
-    if (!activeSlug) return
-    const timeout = setTimeout(() => setActiveSlug(null), 3200)
-    return () => clearTimeout(timeout)
-  }, [activeSlug])
 
   return (
     <>
@@ -165,7 +136,7 @@ export default function Work() {
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-[3.5vw] lg:grid-cols-3 lg:gap-[1.67vw]">
             {filtered.map((item, i) => (
               <Reveal key={item.slug} delay={Math.min(i, 5) * 0.06}>
-                <GridCard item={item} index={i} isActive={activeSlug === item.slug} />
+                <GridCard item={item} index={i} />
               </Reveal>
             ))}
           </div>

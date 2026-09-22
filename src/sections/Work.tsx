@@ -59,7 +59,7 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
 
   return (
     <Link
-      to={`/work#${item.slug}`}
+      to={`/work/${item.slug}`}
       data-cursor="view"
       data-cursor-label="View"
       draggable={false}
