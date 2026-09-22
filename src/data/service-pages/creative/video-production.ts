@@ -16,19 +16,19 @@ export const videoProductionPage: ServicePage = {
   includes: {
     label: 'Scope',
     heading: "What's in the package",
-    intro: 'Every message is crafted to build trust and authority across all your stakeholder groups.',
-    items: ['Concept development and scripting', 'Shoot production and direction', 'Editing and post-production', 'Short-form and campaign video cutdowns'],
+    intro: 'Placeholder: every engagement is scoped to your goals. These are the building blocks we combine.',
+    items: ['Placeholder: discovery and research', 'Placeholder: strategy and planning', 'Placeholder: design and build', 'Placeholder: launch and support'],
   },
   process: {
     label: 'Process',
     heading: 'Step by step',
-    intro: 'A strategic approach to unifying your corporate voice and messaging framework.',
-    steps: ['Concept and scripting', 'Pre-production planning', 'Shoot', 'Edit, post-production and delivery'],
+    intro: 'Placeholder: a clear path from first conversation to a result your team can run with.',
+    steps: ['Discovery and research', 'Planning and direction', 'Design and build', 'Launch and handover'],
   },
   faq: [
-    { q: 'Placeholder: what is included in video production?', a: 'Placeholder answer. One or two sentences that answer the question plainly.' },
-    { q: 'Placeholder: can you work with what we already have?', a: 'Placeholder answer. One or two sentences that answer the question plainly.' },
-    { q: 'Placeholder: what do we receive at the end?', a: 'Placeholder answer. One or two sentences that answer the question plainly.' },
-    { q: 'Placeholder: how long does a project take?', a: 'Placeholder answer. One or two sentences that answer the question plainly.' },
+    { q: 'How many videos can you get from one shoot day?', a: 'We plan each shoot to output 10+ platform-native cuts, not just the one hero video.' },
+    { q: 'Do you write the script, or do we need to provide one?', a: 'We handle concept and scripting as part of the process, starting from your goals and key messages.' },
+    { q: 'Can we reuse the raw footage later without you?', a: "Yes — you receive the full raw footage archive, so future edits don't require rebooking a crew." },
+    { q: 'How do you make sure the video performs, not just looks good?', a: 'We test multiple opening seconds before committing to a full edit, since the hook decides whether anyone watches the rest.' },
   ],
 }

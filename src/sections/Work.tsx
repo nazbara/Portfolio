@@ -20,14 +20,8 @@ import { getWorkImage } from '@/lib/media'
 function WorkCard({ item, index }: { item: WorkItem; index: number }) {
   const image = getWorkImage(item.slug)
 
-  return (
-    <Link
-      to={`/work/${item.slug}`}
-      data-cursor="view"
-      data-cursor-label="View"
-      draggable={false}
-      className="group relative isolate block size-full overflow-hidden rounded-(--r-media) bg-grey-900 text-paper"
-    >
+  const content = (
+    <>
       <div className="absolute inset-0 transition-transform duration-(--dur-slow) ease-(--ease-out-quart) motion-safe:group-hover:scale-[1.04]">
         {image ? (
           <img
@@ -60,6 +54,37 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
           {item.title}
         </h3>
       </div>
+    </>
+  )
+
+  const className =
+    'group relative isolate block size-full overflow-hidden rounded-(--r-media) bg-grey-900 text-paper'
+
+  if (item.link) {
+    return (
+      <a
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-cursor="view"
+        data-cursor-label="View"
+        draggable={false}
+        className={className}
+      >
+        {content}
+      </a>
+    )
+  }
+
+  return (
+    <Link
+      to={`/work/${item.slug}`}
+      data-cursor="view"
+      data-cursor-label="View"
+      draggable={false}
+      className={className}
+    >
+      {content}
     </Link>
   )
 }
