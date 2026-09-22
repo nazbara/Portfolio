@@ -20,15 +20,15 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      'Placeholder testimonial two. A shorter quote, two or three sentences at most, so the card has to hold its height when the copy is brief. Swap in something specific and honest when real feedback is available.',
-    name: 'Sample Client B',
-    role: 'Placeholder Role, Sample Company',
+      '"We had a fantastic experience working with the Nezbara team, especially Tharun and Sanjay, on the development of our e-commerce platform for Velora Retail. What stood out was their ability to translate our brand into a seamless shopping experience, all while working within a tight launch timeline.Throughout the project, we requested several changes to the checkout flow and product pages, and the team was always patient and quick to adapt. Their attention to detail and willingness to iterate until everything felt right made the whole process easy and collaborative.Tharun and Sanjay have been a dependable and skilled team to work with.We are grateful for their technical execution and steady communication, and we look forward to partnering with Nezbara on future projects.',
+    name: 'Poovarasan S',
+    role: 'Co-founder, Feinsen Poody',
   },
   {
     quote:
-      'Placeholder testimonial three. This one is medium length: enough words to wrap onto a few lines, with a clear point about the working relationship and the outcome. Nothing here is a real endorsement, and it should be replaced before launch.',
-    name: 'Sample Client C',
-    role: 'Placeholder Role, Sample Company',
+      'Working with the Nezbara team, particularly Tharun and Sanjay, on our clinic management system for Harborview Health was a genuinely smooth experience. They took the time to understand the day-to-day workflow of our staff and built a system that actually fit how we work, not the other way around.There were several rounds of revisions as our requirements evolved, and the team handled each one with patience and a clear focus on getting the details right. Their responsiveness meant we were never left waiting on updates.Tharun and Sanjay have proven themselves a reliable, detail-oriented team. We appreciate their commitment to quality and timely delivery, and we are excited to continue working with Nezbara as we grow.',
+    name: 'John Doe',
+    role: 'Chief Executive Officer, Jezlance Health',
   },
   {
     quote:
@@ -38,14 +38,14 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      'Placeholder testimonial five. A long sample again, so that the tallest slide sets the height of the card and every other slide is centred inside the same space. Replace with a genuine client quote, ideally one that names a measurable result or a specific moment in the project that went particularly well.',
-    name: 'Sample Client E',
-    role: 'Placeholder Role, Sample Company',
+      'Our experience with the Nezbara team, particularly Tharun and Sanjay, on the student portal for Crestline Academy was outstanding. They grasped our requirements quickly and built a platform that was intuitive for both students and staff, all delivered ahead of schedule. As we refined the requirements along the way, the team remained patient and responsive, incorporating every change with care. Their proactive approach to solving problems made the development process far smoother than we expected. Tharun and Sanjay have been a trustworthy and capable team throughout. We appreciate their dedication and technical strength, and we are looking forward to working with Nezbara again soon.',
+    name: 'Swaminathan R',
+    role: 'Assistant Professor, PSG iTECH',
   },
   {
     quote:
-      'Placeholder testimonial six. The last sample in the set: a couple of plain sentences, no claims, no names, nothing that could be mistaken for a real endorsement of anything.',
-    name: 'Sample Client F',
-    role: 'Placeholder Role, Sample Company',
+      'We had a wonderful experience collaborating with the Nezbara team, especially Tharun and Sanjay, on the booking platform for Solstice Events. They understood our vision from the start and delivered a clean, reliable system well within our deadline. Throughout development, we made several adjustments to the booking flow and design, and the team was consistently responsive and thorough in implementing them. Their patience and collaborative approach made the entire process enjoyable. Tharun and Sanjay have been a reliable, hardworking team to partner with. We are grateful for their commitment and technical skill, and we look forward to future projects with Nezbara.',
+    name: 'Santhosh S',
+    role: 'Founder, Capture Clan',
   },
 ]
