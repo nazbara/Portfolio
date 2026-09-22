@@ -6,9 +6,9 @@
  */
 export const site = {
   name: 'Nezbara',
-  address: 'Placeholder Street, City, State 000000',
+  address: '60 Marudhakonar Street, Coimbatore, Tamilnadu',
   email: 'hello@nezbara.example',
-  phone: '+00 00000 00000',
+  phone: '+91 7418597037',
   /** PLACEHOLDER links (href="#") until the real profiles exist. */
   social: [
     { label: 'YouTube', href: '#' },
