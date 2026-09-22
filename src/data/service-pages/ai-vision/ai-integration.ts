@@ -4,19 +4,19 @@ import type { ServicePage } from '../types'
 export const aiIntegrationPage: ServicePage = {
   slug: 'ai-integration',
   title: 'AI Integration',
-  hero: { label: 'AI Vision', lines: ['AI INTEGRATION', 'BUILT AROUND', 'YOUR GOALS.'] },
+  hero: { label: 'AI Vision', lines: ['Automated', 'response', 'that actually helps.'] },
   approach: {
     label: 'Approach',
     paragraphs: [
-      'Placeholder: how we approach ai integration. We start with your goals, agree what good looks like and only then decide what to make.',
-      'Placeholder: what you can expect from working with us: clear communication, a small senior team and work that is easy to keep improving.',
+      'A chatbot or virtual assistant, built well, gives visitors a useful first response instead of a scripted dead end. A bot that cannot answer a real question just adds a frustrating step before someone gives up. We design conversational flows around the questions your customers actually ask, not a generic FAQ tree.',
+      'The goal is a first response that resolves or routes, so people get help fast and the leads worth capturing get captured.',
     ],
     cta: { label: 'Talk to us', to: '/contact' },
   },
   includes: {
     label: 'Scope',
     heading: "What's in the package",
-    intro: 'Placeholder: every engagement is scoped to your goals. These are the building blocks we combine.',
+    intro: 'Every message is crafted to build trust and authority across all your stakeholder groups.',
     items: [
       'Cost-per-call dashboards, so token spend never shows up as a surprise',
       'Prompt version control, so every change is tracked and reversible',
@@ -27,7 +27,7 @@ export const aiIntegrationPage: ServicePage = {
   process: {
     label: 'Process',
     heading: 'Step by step',
-    intro: 'Placeholder: a clear path from first conversation to a result your team can run with.',
+    intro: 'A strategic approach to unifying your corporate voice and messaging framework.',
     steps: ['Discovery and use-case mapping', 'Architecture and prompt design', 'Build and integration', 'Testing and rollout'],
   },
   faq: [

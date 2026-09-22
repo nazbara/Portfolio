@@ -4,19 +4,19 @@ import type { ServicePage } from '../types'
 export const seoPage: ServicePage = {
   slug: 'seo',
   title: 'SEO',
-  hero: { label: 'Growth', lines: ['SEO', 'BUILT AROUND', 'YOUR GOALS.'] },
+  hero: { label: 'Growth', lines: ['Rank on Google.', 'Get', 'cited by AI.'] },
   approach: {
     label: 'Approach',
     paragraphs: [
-      'Placeholder: how we approach seo. We start with your goals, agree what good looks like and only then decide what to make.',
-      'Placeholder: what you can expect from working with us: clear communication, a small senior team and work that is easy to keep improving.',
+      'SEO gets your pages ranked in search results. AEO, or answer engine optimisation, structures that same content so AI engines like ChatGPT and Google AI Overviews can pull it out and cite it as the answer. Search has split into these two lanes, and we build for both from the same technical and content base.',
+      'Treating them as separate projects just doubles the work and leaves gaps. One strategy, one foundation, both outcomes.',
     ],
     cta: { label: 'Talk to us', to: '/contact' },
   },
   includes: {
     label: 'Scope',
     heading: "What's in the package",
-    intro: 'Placeholder: every engagement is scoped to your goals. These are the building blocks we combine.',
+    intro: 'Every message is crafted to build trust and authority across all your stakeholder groups.',
     items: [
       'A technical audit that maps crawl-budget waste, not just a keyword list',
       "Content built around the exact question a buyer types right before they're ready to purchase",
@@ -27,7 +27,7 @@ export const seoPage: ServicePage = {
   process: {
     label: 'Process',
     heading: 'Step by step',
-    intro: 'Placeholder: a clear path from first conversation to a result your team can run with.',
+    intro: 'A strategic approach to unifying your corporate voice and messaging framework.',
     steps: ['Technical audit', 'Strategy and keyword mapping', 'Implementation and content', 'Monitoring and reporting'],
   },
   faq: [
