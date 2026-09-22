@@ -25,7 +25,14 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
       <div className="relative isolate aspect-[4/3] overflow-hidden">
         <div className="absolute inset-0 transition-transform duration-(--dur-slow) ease-(--ease-out-quart) motion-safe:group-hover:scale-[1.03]">
           {image ? (
-            <img src={image} alt="" draggable={false} loading="lazy" decoding="async" className="size-full object-cover select-none" />
+            <img
+              src={image}
+              alt=""
+              draggable={false}
+              loading="lazy"
+              decoding="async"
+              className="size-full grayscale object-cover transition-[filter] duration-500 ease-out select-none group-hover:grayscale-0 group-focus-visible:grayscale-0"
+            />
           ) : (
             <PlaceholderArt mark={String(index + 1).padStart(2, '0')} />
           )}

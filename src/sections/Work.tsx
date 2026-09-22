@@ -30,7 +30,7 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
             draggable={false}
             loading="lazy"
             decoding="async"
-            className="size-full object-cover select-none"
+            className="size-full grayscale object-cover transition-[filter] duration-500 ease-out select-none group-hover:grayscale-0 group-focus-visible:grayscale-0"
           />
         ) : (
           <PlaceholderArt mark={String(index + 1).padStart(2, '0')} />

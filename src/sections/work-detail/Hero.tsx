@@ -49,7 +49,7 @@ export default function Hero({ page }: { page: WorkDetailPage }) {
                 loading="eager"
                 decoding="async"
                 draggable={false}
-                className="size-full object-cover select-none"
+                className="size-full grayscale object-cover transition-[filter] duration-500 ease-out select-none hover:grayscale-0"
               />
             ) : (
               <PlaceholderArt />
