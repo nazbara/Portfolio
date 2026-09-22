@@ -5,7 +5,7 @@
  */
 
 /** One word/phrase per line, stacked. Lines alternate white / slate. */
-export const headlineLines = ['IDEAS.', 'BUILD.', 'REALITY.']
+export const headlineLines = ['IDEAS.', 'BUILD.', 'REALITY.','TRUST.']
 
 /** PLACEHOLDER label. */
 export const primaryCta = { label: 'Start a project', to: '/contact' }

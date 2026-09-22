@@ -14,9 +14,9 @@ export const testimonialsHeading = 'What clients say'
 export const testimonials: Testimonial[] = [
   {
     quote:
-      'Placeholder testimonial one. Replace this text with a real quote from a client: what the project was, what changed for them, and why they would recommend the studio to someone facing a similar challenge. It is written long on purpose so the card shows how several lines of italic text sit.',
-    name: 'Sample Client A',
-    role: 'Placeholder Role, Sample Company',
+      "We are very happy with Nezbara's work on the JCS iLEARN platform they understood our vision and audience, delivering a polished, easy-to-use platform with strong technical skill, quick responses, and great attention to detail. They listened closely, offered smart solutions, and created an engaging learner experience. We confidently recommend Nezbara as a reliable technology partner and look forward to working together again.",
+    name: 'Siva Harish M',
+    role: 'Co-founder & VP, JCS iLearn LLP.',
   },
   {
     quote:
