@@ -1,4 +1,3 @@
-import { data, source } from 'framer-motion/m'
 import type { ServicePage } from '../types'
 
 /** PLACEHOLDER CONTENT — /services/rag-pipelines. */
