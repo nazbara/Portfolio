@@ -4,19 +4,19 @@ import type { ServicePage } from '../types'
 export const mlSystemsPage: ServicePage = {
   slug: 'ml-systems',
   title: 'ML Systems',
-  hero: { label: 'AI Vision', lines: ['ML SYSTEMS', 'BUILT AROUND', 'YOUR GOALS.'] },
+  hero: { label: 'AI Vision', lines: ['BUILT AROUND YOUR', 'REAL WORLD DATA,', 'NOT A DEMO.'] },
   approach: {
     label: 'Approach',
     paragraphs: [
-      'Placeholder: how we approach ml systems. We start with your goals, agree what good looks like and only then decide what to make.',
-      'Placeholder: what you can expect from working with us: clear communication, a small senior team and work that is easy to keep improving.',
+      'We start with your goals, not a model architecture. Before any training begins, we agree what "good" looks like — the accuracy that actually matters for your use case, and what happens when the model is inevitably wrong.',
+      'Working with us means direct access to a small senior team, honest conversations about what ML can and cannot do, and systems built so your team can own them long after we have shipped.',
     ],
     cta: { label: 'Talk to us', to: '/contact' },
   },
   includes: {
     label: 'Scope',
     heading: "What's in the package",
-    intro: 'Placeholder: every engagement is scoped to your goals. These are the building blocks we combine.',
+    intro: 'Every engagement is scoped to your goals. These are the building blocks we combine.',
     items: [
       'An evaluation harness built alongside the model, not bolted on before ship',
       'Data drift monitoring, so you know before a model quietly degrades',
@@ -27,7 +27,7 @@ export const mlSystemsPage: ServicePage = {
   process: {
     label: 'Process',
     heading: 'Step by step',
-    intro: 'Placeholder: a clear path from first conversation to a result your team can run with.',
+    intro: 'A clear path from first conversation to a result your team can run with.',
     steps: ['Problem scoping and data audit', 'Model design and experimentation', 'Training and evaluation', 'Deployment and monitoring'],
   },
   faq: [

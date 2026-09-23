@@ -1,22 +1,23 @@
+import { data, source } from 'framer-motion/m'
 import type { ServicePage } from '../types'
 
 /** PLACEHOLDER CONTENT — /services/rag-pipelines. */
 export const ragPipelinesPage: ServicePage = {
   slug: 'rag-pipelines',
   title: 'RAG Pipelines',
-  hero: { label: 'AI Vision', lines: ['RAG PIPELINES', 'BUILT AROUND', 'YOUR GOALS.'] },
+  hero: { label: 'AI Vision', lines: ['PIPELINES BUILT', 'TO SCALE WITH', 'YOUR CONTENT', 'Support.'] },
   approach: {
     label: 'Approach',
     paragraphs: [
-      'Placeholder: how we approach rag pipelines. We start with your goals, agree what good looks like and only then decide what to make.',
-      'Placeholder: what you can expect from working with us: clear communication, a small senior team and work that is easy to keep improving.',
+      'Every RAG pipeline starts the same way for us: understanding what "correct" means for your use case, before any retrieval logic is written. Accuracy on a demo dataset means nothing if it falls apart on your actual, messy documents — so that\'s where we start testing from day one.',
+      'Expect a small senior team working directly with you, citations built into every answer so outputs stay checkable, and a system documented well enough that your team isn\'t dependent on us to add the next data source.',
     ],
     cta: { label: 'Talk to us', to: '/contact' },
   },
   includes: {
     label: 'Scope',
     heading: "What's in the package",
-    intro: 'Placeholder: every engagement is scoped to your goals. These are the building blocks we combine.',
+    intro: 'Every engagement is scoped to your goals. These are the building blocks we combine.',
     items: [
       'Retrieval accuracy tested against your real, messiest documents — not a clean demo set',
       'Source citations built into every answer, so outputs are checkable, not just plausible',
@@ -27,7 +28,7 @@ export const ragPipelinesPage: ServicePage = {
   process: {
     label: 'Process',
     heading: 'Step by step',
-    intro: 'Placeholder: a clear path from first conversation to a result your team can run with.',
+    intro: 'A clear path from first conversation to a result your team can run with.',
     steps: ['Data audit and source mapping', 'Pipeline design and chunking strategy', 'Build and retrieval testing', 'Deployment and monitoring'],
   },
   faq: [

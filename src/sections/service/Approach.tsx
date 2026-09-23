@@ -8,13 +8,16 @@ import { getServiceImage } from '@/lib/media'
 
 /**
  * White section, two columns. Left: a large picture (src/assets/services/<slug>-approach.webp, else the
- * light placeholder panel; anchored bottom-right and nudged 2vw further left, so the picture sits a little more to the left) that fills the left half of the section from its top padding down to the
- * bottom edge and out to the viewport's left edge — the photo bleeds off the bottom-left, as in the frames.
- * Right (starts at 50% of the container): label, two 36px light paragraphs (48px pitch, one blank line
- * between) and a solid ink pill with an arrow. Phones stack, picture first.
+ * light placeholder panel), shown whole (object-contain, never cropped) and nudged 2vw further left,
+ * anchored 30% from the left edge and centred vertically so every subject sits the same way regardless
+ * of its own crop. Fills the left half of the section from its top padding down to the bottom edge and
+ * out to the viewport's left edge. Right (starts at 50% of the container): label, two 36px light
+ * paragraphs (48px pitch, one blank line between) and a solid ink pill with an arrow. Phones stack, picture first.
  */
 export default function Approach({ page }: { page: ServicePage }) {
   const image = getServiceImage(`${page.slug}-approach`)
+  // ml-systems sits a little low against its default vertical centre — nudge it up.
+  const objectPosition = page.slug === 'ml-systems' ? 'object-[30%_10%]' : 'object-[30%_50%]'
 
   return (
     <section
@@ -31,7 +34,7 @@ export default function Approach({ page }: { page: ServicePage }) {
             loading="lazy"
             decoding="async"
             draggable={false}
-            className="size-full max-w-none object-cover object-[100%_100%] lg:-ml-[2vw] lg:w-[calc(100%+2vw)]"
+            className={`size-full max-w-none object-contain ${objectPosition} lg:-ml-[2vw] lg:w-[calc(100%+2vw)]`}
           />
         ) : (
           <PlaceholderArt variant="light" />

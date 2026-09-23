@@ -4,19 +4,19 @@ import type { ServicePage } from '../types'
 export const campaignsPage: ServicePage = {
   slug: 'campaigns',
   title: 'Campaigns',
-  hero: { label: 'Creative', lines: ['CAMPAIGNS', 'BUILT AROUND', 'YOUR GOALS.'] },
+  hero: { label: 'Creative', lines: ['ADS TESTED', 'BEFORE YOUR BUDGET', 'IS ON THE LINE.'] },
   approach: {
     label: 'Approach',
     paragraphs: [
-      'Placeholder: how we approach campaigns. We start with your goals, agree what good looks like and only then decide what to make.',
-      'Placeholder: what you can expect from working with us: clear communication, a small senior team and work that is easy to keep improving.',
+      'Every campaign starts with the same question: what result are we actually trying to drive? Once that\'s clear, the creative, the channels, and the targeting all follow from it — instead of us pitching you a concept and hoping the numbers work out.',
+      'Expect direct communication with the people running your campaign, creative tested against real audiences before launch, and performance tracked closely enough that underperforming ads get cut early, not discovered at the end of the month.',
     ],
     cta: { label: 'Talk to us', to: '/contact' },
   },
   includes: {
     label: 'Scope',
     heading: "What's in the package",
-    intro: 'Placeholder: every engagement is scoped to your goals. These are the building blocks we combine.',
+    intro: 'Every engagement is scoped to your goals. These are the building blocks we combine.',
     items: [
       'Creative built and tested in 3 variants before launch, not one gut-feel version',
       "Kill criteria agreed before spend starts, so nobody's guessing when to pull an underperforming ad",
@@ -27,7 +27,7 @@ export const campaignsPage: ServicePage = {
   process: {
     label: 'Process',
     heading: 'Step by step',
-    intro: 'Placeholder: a clear path from first conversation to a result your team can run with.',
+    intro: 'A clear path from first conversation to a result your team can run with.',
     steps: ['Brief and audience research', 'Creative concept and planning', 'Production and testing', 'Launch and optimization'],
   },
   faq: [

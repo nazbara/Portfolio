@@ -4,19 +4,19 @@ import type { ServicePage } from '../types'
 export const performanceMarketingPage: ServicePage = {
   slug: 'performance-marketing',
   title: 'Performance Marketing',
-  hero: { label: 'Growth', lines: ['PERFORMANCE MARKETING', 'BUILT AROUND', 'YOUR GOALS.'] },
+  hero: { label: 'Growth', lines: ['Paid campaigns', 'optimised for', 'pipeline, not', 'cost-per-click'] },
   approach: {
     label: 'Approach',
     paragraphs: [
-      'Placeholder: how we approach performance marketing. We start with your goals, agree what good looks like and only then decide what to make.',
-      'Placeholder: what you can expect from working with us: clear communication, a small senior team and work that is easy to keep improving.',
+      'Performance marketing is paid advertising built and optimised around what happens after the click, leads and revenue, rather than around a low cost-per-click on its own. A cheap click that never becomes a lead is not a saving. We run campaigns across Google, Meta and other channels and optimise them against the pipeline they produce.',
+      'The ad is only half the job. What the click lands on, and what happens next, decides whether the spend pays off.',
     ],
     cta: { label: 'Talk to us', to: '/contact' },
   },
   includes: {
     label: 'Scope',
     heading: "What's in the package",
-    intro: 'Placeholder: every engagement is scoped to your goals. These are the building blocks we combine.',
+    intro: 'Every engagement is scoped to your goals. These are the building blocks we combine.',
     items: [
       'Creative fatigue tracking — ads get refreshed before performance drops, not after',
       'Full-funnel tracking wired before spend starts, so every dollar is traceable',
@@ -27,7 +27,7 @@ export const performanceMarketingPage: ServicePage = {
   process: {
     label: 'Process',
     heading: 'Step by step',
-    intro: 'Placeholder: a clear path from first conversation to a result your team can run with.',
+    intro: 'A clear path from first conversation to a result your team can run with.',
     steps: ['Audit and funnel mapping', 'Campaign build and tracking setup', 'Launch and testing', 'Scale and optimize'],
   },
   faq: [

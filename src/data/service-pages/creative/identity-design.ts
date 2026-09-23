@@ -4,19 +4,19 @@ import type { ServicePage } from '../types'
 export const identityDesignPage: ServicePage = {
   slug: 'identity-design',
   title: 'Identity Design',
-  hero: { label: 'Creative', lines: ['IDENTITY DESIGN', 'BUILT AROUND', 'YOUR GOALS.'] },
+  hero: { label: 'Creative', lines: ['Visuals built to', 'communicate,', 'not just', 'decorate'] },
   approach: {
     label: 'Approach',
     paragraphs: [
-      'Placeholder: how we approach identity design. We start with your goals, agree what good looks like and only then decide what to make.',
-      'Placeholder: what you can expect from working with us: clear communication, a small senior team and work that is easy to keep improving.',
+      'Design here means purpose-built visual work made to solve a specific problem and communicate clearly, across decks, collateral, reports, ads and infographics. Too much design just fills a layout with something that looks nice. We start from what the piece has to achieve, then design toward it.',
+      'Clear beats clever most of the time. A well-designed report or deck earns attention because people can follow it, not just because it looks polished.',
     ],
     cta: { label: 'Talk to us', to: '/contact' },
   },
   includes: {
     label: 'Scope',
     heading: "What's in the package",
-    intro: 'Placeholder: every engagement is scoped to your goals. These are the building blocks we combine.',
+    intro: 'Every message is crafted to build trust and authority across all your stakeholder groups.',
     items: [
       'A system tested at both extremes — shrunk to a favicon and blown up to a billboard — before delivery',
       'A motion identity from day one, not just a static logo file',
@@ -27,7 +27,7 @@ export const identityDesignPage: ServicePage = {
   process: {
     label: 'Process',
     heading: 'Step by step',
-    intro: 'Placeholder: a clear path from first conversation to a result your team can run with.',
+    intro: 'A strategic approach to unifying your corporate voice and messaging framework.',
     steps: ['Discovery and research', 'Concept exploration', 'System design and build', 'Launch and guidelines handover'],
   },
   faq: [

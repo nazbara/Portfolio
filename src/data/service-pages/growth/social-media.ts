@@ -4,19 +4,19 @@ import type { ServicePage } from '../types'
 export const socialMediaPage: ServicePage = {
   slug: 'social-media',
   title: 'SMMA',
-  hero: { label: 'Growth', lines: ['SMMA', 'BUILT AROUND', 'YOUR GOALS.'] },
+  hero: { label: 'Growth', lines: ['Social media tied to', 'business goals, not', 'post counts.'] },
   approach: {
     label: 'Approach',
     paragraphs: [
-      'Placeholder: how we approach smma. We start with your goals, agree what good looks like and only then decide what to make.',
-      'Placeholder: what you can expect from working with us: clear communication, a small senior team and work that is easy to keep improving.',
+      'Social media marketing is the practice of building and running platform-specific content and community that ties back to a real business goal, whether that is visibility, engagement or leads. Posting consistently is not a strategy on its own. We build programmes with a point, and we measure them against it.',
+      'Where your audience actually is decides where we invest, not a one-size template that spreads you thin across every platform.',
     ],
     cta: { label: 'Talk to us', to: '/contact' },
   },
   includes: {
     label: 'Scope',
     heading: "What's in the package",
-    intro: 'Placeholder: every engagement is scoped to your goals. These are the building blocks we combine.',
+    intro: 'Every message is crafted to build trust and authority across all your stakeholder groups.',
     items: [
       "Platform-native content, shot and cut for how each app actually behaves — not one asset resized everywhere",
       "A response playbook so comments and DMs stay on-brand even when we're not online",

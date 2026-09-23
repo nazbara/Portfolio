@@ -4,19 +4,19 @@ import type { ServicePage } from '../types'
 export const positioningPage: ServicePage = {
   slug: 'positioning',
   title: 'Positioning',
-  hero: { label: 'Strategy', lines: ['POSITIONING', 'BUILT AROUND', 'YOUR GOALS.'] },
+  hero: { label: 'Strategy', lines: ['OWN A SPACE', 'NO ONE ELSE', 'CAN CLAIM.'] },
   approach: {
     label: 'Approach',
     paragraphs: [
-      'Placeholder: how we approach positioning. We start with your goals, agree what good looks like and only then decide what to make.',
-      'Placeholder: what you can expect from working with us: clear communication, a small senior team and work that is easy to keep improving.',
+      'We start with your goals, not a brand-workshop template. Before we write a single line of messaging, we agree what winning looks like — who you need to be remembered by, and what they need to believe about you to choose you.',
+      'Working with us means direct access to a small senior team, no jargon-filled brand decks, and positioning built to hold up in a real sales conversation, not just a slide.',
     ],
     cta: { label: 'Talk to us', to: '/contact' },
   },
   includes: {
     label: 'Scope',
     heading: "What's in the package",
-    intro: 'Placeholder: every engagement is scoped to your goals. These are the building blocks we combine.',
+    intro: 'Every engagement is scoped to your goals. These are the building blocks we combine.',
     items: [
       "A 'category of one' strategy, engineered so you're compared on your terms, not a commodity list",
       "Messaging stress-tested against your sales team's hardest real objections",
@@ -27,7 +27,7 @@ export const positioningPage: ServicePage = {
   process: {
     label: 'Process',
     heading: 'Step by step',
-    intro: 'Placeholder: a clear path from first conversation to a result your team can run with.',
+    intro: 'A clear path from first conversation to a result your team can run with.',
     steps: ['Discovery and competitive mapping', 'Positioning workshop', 'Messaging and proof points', 'Alignment and rollout'],
   },
   faq: [

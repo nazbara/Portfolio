@@ -4,19 +4,19 @@ import type { ServicePage } from '../types'
 export const webDevelopmentPage: ServicePage = {
   slug: 'web-development',
   title: 'Web Development',
-  hero: { label: 'Digital', lines: ['WEB DEVELOPMENT', 'BUILT AROUND', 'YOUR GOALS.'] },
+  hero: { label: 'Digital', lines: ['CODE YOUR TEAM', 'CAN ACTUALLY OWN', 'NOT JUST INHERIT LATER.'] },
   approach: {
     label: 'Approach',
     paragraphs: [
-      'Placeholder: how we approach web development. We start with your goals, agree what good looks like and only then decide what to make.',
-      'Placeholder: what you can expect from working with us: clear communication, a small senior team and work that is easy to keep improving.',
+      'We don\'t start with a template — we start with what the site actually needs to do for your business. Once we agree on that, the technical decisions follow naturally instead of being made in advance.',
+      'You\'ll work directly with the engineers building your site, not a project manager relaying updates. Everything we ship is documented, tested, and built so your team can extend it without waiting on us.',
     ],
     cta: { label: 'Talk to us', to: '/contact' },
   },
   includes: {
     label: 'Scope',
     heading: "What's in the package",
-    intro: 'Placeholder: every engagement is scoped to your goals. These are the building blocks we combine.',
+    intro: 'Every engagement is scoped to your goals. These are the building blocks we combine.',
     items: [
       "A performance budget enforced at build time — the build fails if it's not fast, not 'checked later'",
       "A component library built for your content team's self-sufficiency — no dev ticket for a new page",
@@ -27,7 +27,7 @@ export const webDevelopmentPage: ServicePage = {
   process: {
     label: 'Process',
     heading: 'Step by step',
-    intro: 'Placeholder: a clear path from first conversation to a result your team can run with.',
+    intro: 'A clear path from first conversation to a result your team can run with.',
     steps: ['Technical discovery and planning', 'Architecture and build', 'Integration and testing', 'Launch and handover'],
   },
   faq: [

@@ -4,19 +4,19 @@ import type { ServicePage } from '../types'
 export const marketResearchPage: ServicePage = {
   slug: 'market-research',
   title: 'Market Research',
-  hero: { label: 'Strategy', lines: ['MARKET RESEARCH', 'BUILT AROUND', 'YOUR GOALS.'] },
+  hero: { label: 'Strategy', lines: ['KNOW YOUR MARKET', 'BEFORE', 'YOU BET ON IT.'] },
   approach: {
     label: 'Approach',
     paragraphs: [
-      'Placeholder: how we approach market research. We start with your goals, agree what good looks like and only then decide what to make.',
-      'Placeholder: what you can expect from working with us: clear communication, a small senior team and work that is easy to keep improving.',
+      'We start with your goals, not a template. Before any interviews happen, we agree what "good" looks like for you — what decision this research needs to support, and what evidence would actually move it.',
+      'Clear beats clever most of the time. A well-designed report or deck earns attention because people can follow it, not just because it looks polished.',
     ],
     cta: { label: 'Talk to us', to: '/contact' },
   },
   includes: {
     label: 'Scope',
     heading: "What's in the package",
-    intro: 'Placeholder: every engagement is scoped to your goals. These are the building blocks we combine.',
+    intro: 'Every engagement is scoped to your goals. These are the building blocks we combine.',
     items: [
       'Live customer interviews we sit in on — not a survey link and a spreadsheet',
       'A buying-trigger map — the exact moment prospects decide to act, not just who they are',
@@ -27,7 +27,7 @@ export const marketResearchPage: ServicePage = {
   process: {
     label: 'Process',
     heading: 'Step by step',
-    intro: 'Placeholder: a clear path from first conversation to a result your team can run with.',
+    intro: 'A clear path from first conversation to a result your team can run with.',
     steps: ['Scoping and hypotheses', 'Interviews and data collection', 'Analysis and insight synthesis', 'Findings and recommendations'],
   },
   faq: [
