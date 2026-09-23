@@ -23,7 +23,7 @@ function Track({ items, copy = false }: { items: Client[]; copy?: boolean }) {
               alt={copy ? '' : client.name}
               loading="lazy"
               draggable={false}
-              className="max-h-[52%] max-w-[78%] object-contain"
+              className="max-h-[68%] max-w-[85%] object-contain"
             />
           ) : (
             <span className="text-center text-[clamp(0.875rem,1.05vw,1.25rem)] leading-tight font-semibold text-grey-500">
