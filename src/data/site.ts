@@ -22,7 +22,7 @@ export const companyLinks = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
   { label: 'Work', to: '/work' },
-  { label: 'Insights', to: '/insights' },
+  { label: 'Resources', to: '/resources' },
 ] as const
 
 export const privacyHref = '/privacy'

@@ -8,7 +8,7 @@ export const navItems: NavItem[] = [
   { kind: 'dropdown', label: 'Services', activePrefix: '/services' },
   { kind: 'link', label: 'Work', to: '/work' },
   { kind: 'link', label: 'About', to: '/about' },
-  { kind: 'link', label: 'Insights', to: '/insights' },
+  { kind: 'link', label: 'Resources', to: '/resources' },
 ]
 
 /** PLACEHOLDER label — the Navbar and the mobile menu both read it. */
