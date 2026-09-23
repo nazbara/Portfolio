@@ -99,8 +99,8 @@ export default function Work() {
           </Reveal>
           <Reveal delay={0.08} className="mt-6 lg:mt-[2.35vw]">
             <h1 className="text-(length:--fs-service-hero) leading-[1] font-extrabold tracking-[-0.05em] text-fg uppercase">
-              <span className="block">Selected</span>
-              <span className="block">Work.</span>
+              <span className="block">Work</span>
+              <span className="block">We're Proud Of.</span>
             </h1>
           </Reveal>
           <Reveal delay={0.16} className="mt-6 max-w-2xl lg:mt-[1.6vw]">
