@@ -7,7 +7,7 @@
 export const site = {
   name: 'Nezbara',
   address: '60 Marudhakonar Street, Coimbatore, Tamilnadu',
-  email: 'hello@nezbara.example',
+  email: 'hello.nezbara@gmail.com',
   phone: '+91 7418597037',
   /** PLACEHOLDER links (href="#") until the real profiles exist. */
   social: [
