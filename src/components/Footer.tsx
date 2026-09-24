@@ -97,9 +97,10 @@ export default function Footer() {
                 <ul className="mt-[1vw] flex flex-wrap gap-4 max-lg:mt-4">
                   {site.social.map((s) => (
                     <li key={s.label}>
-                      {/* PLACEHOLDER hrefs: replace in data/site.ts */}
                       <a
                         href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         data-cursor="hover"
                         className="flex h-[55px] items-center rounded-[4px] border border-(--footer-rule) px-7 text-(length:--fs-foot-social) font-bold tracking-[0.125em] text-paper uppercase transition-colors duration-(--dur-base) ease-(--ease-standard) hover:border-paper hover:bg-paper hover:text-ink"
                       >

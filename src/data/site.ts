@@ -9,11 +9,10 @@ export const site = {
   address: '60 Marudhakonar Street, Coimbatore, Tamilnadu',
   email: 'hello.nezbara@gmail.com',
   phone: '+91 7418597037',
-  /** PLACEHOLDER links (href="#") until the real profiles exist. */
   social: [
-    { label: 'YouTube', href: '#' },
-    { label: 'LinkedIn', href: '#' },
-    { label: 'Instagram', href: '#' },
+    { label: 'YouTube', href: 'https://www.youtube.com/@Nezbara' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/nezbara-89851843a' },
+    { label: 'Instagram', href: 'https://www.instagram.com/hello.nezbara/' },
   ],
 } as const
 
