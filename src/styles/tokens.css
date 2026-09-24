@@ -203,7 +203,7 @@
    * reference proportions at any width. Values were measured from the
    * 1916px reference frame (fs 21px → pill 66px tall, 36px from the top).
    */
-  --fs-nav: clamp(0.9375rem, 1.1vw, 1.3125rem);
+   --fs-nav: clamp(0.9375rem, 1.1vw, 1.3125rem);
   --nav-h: calc(var(--fs-nav) * 3.143); /* pill fill + CTA height */
   --header-top: calc(var(--fs-nav) * 1.714); /* gap above the pill */
   --header-h: calc(var(--header-top) + var(--nav-h) + 2px); /* band the fixed header occupies (2px = pill border) */
@@ -212,23 +212,15 @@
    * renders mid-grey (≈54) where the reference stays ≈36; rgb(25 25 25 / .9) fits all frames. */
   --nav-bg: rgb(25 25 25 / 0.9);
   --nav-border: rgb(255 255 255 / 0.06);
-  --nav-blur: 12px;
+  --nav-blur: 10px;
+  /* Full-width header blur strip (behind logo/pill/CTA): same tint as --nav-bg, much lighter —
+   * an even glass strip across the whole header, not a solid dark bar. */
+  --nav-bg-strip: rgba(20, 20, 20, 0.68);
 
-  /* Scrim behind the header. Fitted to the reference over a white section: near-opaque
-   * to ~y=55px, then an eased fade out at 140px (a plain .85 → 0 ramp leaves the light
-   * logo on mid-grey, ~3:1 contrast). */
-  --scrim-h: 8.75rem;
-  --scrim-bg: linear-gradient(
-    to bottom,
-    rgb(10 10 10 / 1) 0%,
-    rgb(10 10 10 / 0.96) 36%,
-    rgb(10 10 10 / 0.86) 50%,
-    rgb(10 10 10 / 0.68) 60%,
-    rgb(10 10 10 / 0.4) 70%,
-    rgb(10 10 10 / 0.22) 80%,
-    rgb(10 10 10 / 0.1) 90%,
-    rgb(10 10 10 / 0) 100%
-  );
+  /* Scrim behind the header. Flat, hard-edged fill — no fade-out — so the header reads as a
+   * solid bar with a clean bottom edge, per the reference (chimpzlab.com). */
+  --scrim-h: 5.75rem;
+--scrim-bg: rgba(10, 10, 10, 0.55);
 
   /* ── Stacking ──────────────────────────────────────────────── */
   --z-scrim: 40;

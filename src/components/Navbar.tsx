@@ -21,6 +21,26 @@ export default function Navbar() {
       />
 
       <header className="pointer-events-none fixed inset-x-0 top-0 z-(--z-nav)">
+        {/*
+          Full-width blur strip behind the logo/pill/CTA row: unlike the pill's own blur (which
+          only covers the center pill), this spans the whole header edge-to-edge so page content
+          scrolling underneath the logo and CTA blurs too, not just what's behind the pill.
+          Height is --header-top (the gap above the row) + --nav-h (the row) + --header-top again,
+          i.e. the same breathing room below the row as --header-top already gives above it —
+          deliberately NOT --header-h, which has no bottom cushion at all. --header-top/--nav-h/
+          --header-h themselves stay untouched; this calc is local to the strip's own height.
+          -z-10 keeps it behind the row content within the header's own stacking context (the
+          same pattern the pill's blur span uses locally) — it still paints above normal page
+          content, since the header itself is fixed with z-(--z-nav).
+          Flat, hard-edged bar (no fade) per the reference: a quite-transparent tint so page
+          content still faintly shows through the blur, plus a thin bottom border for a crisp
+          edge — not a gradient dissolve.
+        */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[calc(var(--header-top)+var(--nav-h)+var(--header-top))] bg-[rgb(25_25_25/0.5)] backdrop-blur-(--nav-blur) [mask-image:linear-gradient(to_bottom,black_0%,black_88%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,black_0%,black_30%,transparent_97%)]"
+        />
+
         <div className="site-container grid grid-cols-[1fr_auto] items-center pt-(--header-top) text-(length:--fs-nav) lg:grid-cols-[1fr_auto_1fr]">
           {/* Fixed link height keeps the grid row at pill height; the wordmark PNG's transparent padding overflows harmlessly. */}
           <Link
