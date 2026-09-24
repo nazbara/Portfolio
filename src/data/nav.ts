@@ -8,7 +8,7 @@ export const navItems: NavItem[] = [
   { kind: 'dropdown', label: 'Services', activePrefix: '/services' },
   { kind: 'link', label: 'Work', to: '/work' },
   { kind: 'link', label: 'About', to: '/about' },
-  { kind: 'link', label: 'Resources', to: '/resources' },
+  // Resources: hidden from nav until it's ready for launch — page and route stay in place, just unlinked.
 ]
 
 /** PLACEHOLDER label — the Navbar and the mobile menu both read it. */

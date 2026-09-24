@@ -7,7 +7,6 @@ import InsightDetail from '@/pages/InsightDetail'
 import Insights from '@/pages/Insights'
 import NotFound from '@/pages/NotFound'
 import Privacy from '@/pages/Privacy'
-import Resources from '@/pages/Resources'
 import ServiceDetail from '@/pages/ServiceDetail'
 import Work from '@/pages/Work'
 import WorkDetail from '@/pages/WorkDetail'
@@ -23,7 +22,7 @@ export default function App() {
           <Route path="about" element={<About />} />
           <Route path="insights" element={<Insights />} />
           <Route path="insights/:slug" element={<InsightDetail />} />
-          <Route path="resources" element={<Resources />} />
+          {/* Resources: route hidden until launch-ready — Resources.tsx and data/resources.ts stay in place. */}
           <Route path="contact" element={<Contact />} />
           <Route path="privacy" element={<Privacy />} />
           <Route path="services/:slug" element={<ServiceDetail />} />

@@ -22,7 +22,7 @@ export const companyLinks = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
   { label: 'Work', to: '/work' },
-  { label: 'Resources', to: '/resources' },
+  // Resources: hidden from footer until it's ready for launch — page and route stay in place, just unlinked.
 ] as const
 
 export const privacyHref = '/privacy'
