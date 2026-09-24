@@ -44,7 +44,8 @@ async function send(values: Values, withPhone: boolean): Promise<void> {
   }
   const res = await fetch(endpoint, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    // text/plain avoids the CORS preflight application/json would trigger; Apps Script still JSON.parses the body fine.
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
     body: JSON.stringify({
       name: values.name.trim(),
       email: values.email.trim(),
