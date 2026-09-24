@@ -24,11 +24,10 @@ export const workItems: WorkItem[] = [
     link: 'https://www.jcsilearn.com',
   },
   {
-    slug: 'suthikshan-portfolio',
-    title: 'Suthikshan — Developer Portfolio',
-    categories: ['Portfolio', 'Web Design'],
-    summary: 'A personal developer portfolio site.',
-    link: 'https://suthikshan-portfolio-lac-delta-34.vercel.app/',
+    slug: 'edu-saas',
+    title: 'EDU SaaS — College Platform',
+    categories: ['EdTech', 'SaaS'],
+    summary: 'A college platform combining the classroom and the faculty into one software.',
   },
   {
     slug: 'tharun-portfolio',

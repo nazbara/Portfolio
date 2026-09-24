@@ -99,61 +99,61 @@ export const workDetailPages: WorkDetailPage[] = [
   },
   {
     // TODO: replace with real copy/stats — placeholder case study derived from data/work.ts's categories & summary.
-    slug: 'suthikshan-portfolio',
+    slug: 'edu-saas',
     hero: {
-      categories: ['Portfolio', 'Web Design', 'Personal Brand'],
-      headingLines: ['A Portfolio', 'That Reads Like', 'A Developer', 'Actually Built It'],
-      client: 'Suthikshan',
+      categories: ['EdTech', 'SaaS', 'College Platform'],
+      headingLines: ['Classroom And', 'Faculty, Finally', 'Running On', 'One Platform'],
+      client: 'EDU SaaS',
     },
     challenge: {
       label: 'The Challenge',
       statement: [
-        { text: "A generic template couldn't carry the " },
-        { text: 'specific way Suthikshan works', muted: true },
-        { text: ' — his process, his projects, the details a hiring manager actually ' },
-        { text: 'scrolls to find', muted: true },
+        { text: 'Classroom activity and faculty operations lived in ' },
+        { text: 'separate, disconnected tools', muted: true },
+        { text: ' — the college needed a single platform where ' },
+        { text: 'both sides stayed in sync', muted: true },
         { text: '.' },
       ],
     },
     approach: {
       label: 'Our Approach',
-      heading: 'A Site Built Like A Product',
+      heading: 'One Platform, Two Sides',
       intro:
-        "Rather than a stack of generic sections, we treated the portfolio like a small product: one clear narrative from who he is, to what he's built, to how to reach him.",
+        'We designed the platform around the two groups who actually run a college day to day, so classroom activity and faculty operations feed the same system instead of two disconnected ones.',
       cards: [
         {
           number: '01',
-          title: 'Project-First Structure',
-          description: 'Real projects lead the page, each with enough context to explain the problem, not just the tech stack used.',
+          title: 'Unified Classroom & Faculty',
+          description: 'Classroom activity and faculty operations share one platform, so updates on either side stay in sync automatically.',
         },
         {
           number: '02',
-          title: 'Fast, Focused Build',
-          description: 'A lightweight, fast-loading site with no unnecessary libraries, so the work is what loads first — not a loading spinner.',
+          title: 'Built For One College',
+          description: "The platform is shaped around this college's specific structure and workflows, not a generic one-size-fits-all template.",
         },
       ],
     },
     results: {
       label: 'The Result',
       statement: [
-        { text: 'The result is a portfolio Suthikshan can ' },
-        { text: 'confidently share', muted: true },
-        { text: ' in an application or a DM, without a follow-up explanation.' },
+        { text: 'The result is a platform the college runs its ' },
+        { text: 'day-to-day classroom and faculty work', muted: true },
+        { text: ' through, instead of juggling separate tools.' },
       ],
       stats: [
-        { value: '<1s', label: 'First contentful paint on a typical connection' },
-        { value: '100', label: 'Lighthouse performance score on the deployed build' },
+        { value: '1', label: 'Platform replacing separate classroom and faculty tools' },
+        { value: '100%', label: 'Of classroom and faculty data kept in sync' },
       ],
       cards: [
         {
-          title: 'A Clear First Impression',
-          label: 'Positioning',
-          description: 'Visitors understand what Suthikshan builds and how he works within the first screen, no scrolling required.',
+          title: 'Single Source Of Truth',
+          label: 'Data',
+          description: 'Classroom and faculty records live in one place, so nothing falls out of sync between the two sides.',
         },
         {
           title: 'Built To Extend',
           label: 'Maintainability',
-          description: 'Adding a new project is a content change, not a design decision — the layout already knows how to hold it.',
+          description: 'Adding a new workflow is a content change, not a design decision — the platform already knows how to hold it.',
         },
       ],
     },
