@@ -40,8 +40,9 @@ function Track({ items, copy = false }: { items: Client[]; copy?: boolean }) {
 /**
  * Hairline + muted label + an infinite marquee of white cards. Sizes are fluid and were
  * measured from the reference at 1916px (card 336×144, gap 24, radius 18). The track holds
- * two identical copies, so translating it by -50% loops seamlessly. Reduced motion: no
- * animation, the copy is hidden and the strip scrolls horizontally instead.
+ * two identical copies, so translating it by -50% loops seamlessly; it keeps scrolling on
+ * hover rather than pausing. Reduced motion: no animation, the copy is hidden and the strip
+ * scrolls horizontally instead.
  */
 export default function ClientStrip() {
   const labelId = useId()
@@ -60,8 +61,8 @@ export default function ClientStrip() {
           {clientStripLabel}
         </p>
 
-        <div className="group/marquee w-full min-w-0 flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,transparent_100%)] [scrollbar-color:rgb(255_255_255/0.25)_transparent] [scrollbar-width:thin] motion-reduce:overflow-x-auto">
-          <div className="flex w-max animate-[marquee_40s_linear_infinite] will-change-transform group-hover/marquee:[animation-play-state:paused] motion-reduce:animate-none">
+        <div className="w-full min-w-0 flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,transparent_100%)] [scrollbar-color:rgb(255_255_255/0.25)_transparent] [scrollbar-width:thin] motion-reduce:overflow-x-auto">
+          <div className="flex w-max animate-[marquee_40s_linear_infinite] will-change-transform motion-reduce:animate-none">
             <Track items={clients} />
             <Track items={clients} copy />
           </div>

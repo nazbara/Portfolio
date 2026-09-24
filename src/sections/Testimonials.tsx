@@ -1,4 +1,4 @@
-import { useState, type KeyboardEvent } from 'react'
+import { useEffect, useState, type KeyboardEvent } from 'react'
 import { AnimatePresence, motion, type PanInfo } from 'framer-motion'
 import Reveal from '@/components/Reveal'
 import SectionLabel from '@/components/SectionLabel'
@@ -8,6 +8,7 @@ import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { duration, ease } from '@/lib/motion'
 
 const total = testimonials.length
+const AUTOPLAY_MS = 1500
 
 /** "Sample Client A" → "SC": the first letter of the first two words. */
 const initials = (name: string) =>
@@ -70,20 +71,30 @@ function ArrowButton({ dir, onClick }: { dir: -1 | 1; onClick: () => void }) {
 }
 
 /**
- * One large white card on an off-white band (#f5f5f5, sampled). Manual only: arrows, dots,
- * drag / swipe, ArrowLeft / ArrowRight while the region has focus. The card is sized by the tallest
- * quote (every quote is rendered hidden in the same grid cell) and the live one is centred inside
- * it, so nothing jumps; slides crossfade with an 8px slide (350ms, out-quart), or swap instantly
- * under reduced motion. Announces "Testimonial N of M" through a polite live region.
+ * One large white card on an off-white band (#f5f5f5, sampled). Auto-advances every 1.5s, paused
+ * while the pointer is over the region (and while dragging); also: arrows, dots, drag / swipe,
+ * ArrowLeft / ArrowRight while the region has focus. Autoplay is skipped entirely under reduced
+ * motion. The card is sized by the tallest quote (every quote is rendered hidden in the same grid
+ * cell) and the live one is centred inside it, so nothing jumps; slides crossfade with an 8px
+ * slide (350ms, out-quart), or swap instantly under reduced motion. Announces "Testimonial N of M"
+ * through a polite live region.
  * With a `label` (the service page: "Kind words") a SectionLabel sits above the card, aligned with its left
  * edge, and the band gets the larger 10vw padding the frames show.
  */
 export default function Testimonials({ label }: { label?: string } = {}) {
   const reduced = useMediaQuery('(prefers-reduced-motion: reduce)')
   const [{ index, dir }, setState] = useState({ index: 0, dir: 1 })
+  const [paused, setPaused] = useState(false)
+  const [dragging, setDragging] = useState(false)
 
   const goTo = (next: number, direction: number) => setState({ index: (next + total) % total, dir: direction })
   const step = (direction: 1 | -1) => goTo(index + direction, direction)
+
+  useEffect(() => {
+    if (reduced || paused || dragging || total <= 1) return
+    const id = setInterval(() => step(1), AUTOPLAY_MS)
+    return () => clearInterval(id)
+  }, [index, paused, dragging, reduced])
 
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'ArrowRight') {
@@ -96,6 +107,7 @@ export default function Testimonials({ label }: { label?: string } = {}) {
   }
 
   const onDragEnd = (_: unknown, info: PanInfo) => {
+    setDragging(false)
     if (Math.abs(info.offset.x) > 60 || Math.abs(info.velocity.x) > 400) step(info.offset.x < 0 ? 1 : -1)
   }
 
@@ -123,6 +135,10 @@ export default function Testimonials({ label }: { label?: string } = {}) {
             aria-label="Client testimonials"
             tabIndex={0}
             onKeyDown={onKeyDown}
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            onFocus={() => setPaused(true)}
+            onBlur={() => setPaused(false)}
             className="relative mx-auto w-full rounded-(--r-testimonial) outline-offset-4 lg:w-[73.45vw] lg:max-w-[87.5rem]"
           >
             <motion.div
@@ -130,6 +146,7 @@ export default function Testimonials({ label }: { label?: string } = {}) {
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.12}
               dragSnapToOrigin
+              onDragStart={() => setDragging(true)}
               onDragEnd={onDragEnd}
               className="relative grid cursor-grab rounded-(--r-testimonial) bg-paper px-(--card-gutter-x) py-10 active:cursor-grabbing lg:min-h-[33.9vw] lg:py-[5.65vw]"
             >
