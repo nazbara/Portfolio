@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nezbara.com/sitemap.xml
