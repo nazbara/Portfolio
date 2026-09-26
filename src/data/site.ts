@@ -12,7 +12,7 @@ export const site = {
   social: [
     { label: 'YouTube', href: 'https://www.youtube.com/@Nezbara' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/nezbara-89851843a' },
-    { label: 'Instagram', href: 'https://www.instagram.com/hello.nezbara/' },
+    { label: 'Instagram', href: 'https://www.instagram.com/hello.nezbara?stkn=OWVsMm9nODlud201/' },
   ],
 } as const
 
