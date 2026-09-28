@@ -50,8 +50,8 @@ export const founders = {
   heading: 'Founders',
   people: [
     { slug: 'tharun-balaji-s', name: 'Tharun Balaji S', role: 'Founder & CEO' },
-    { slug: 'sanjay-j', name: 'Sanjay J', role: 'Co-Founder, Operations' },
-    { slug: 'suthikshan-k', name: 'Suthikshan K', role: 'Technical Lead , Software' },
+    { slug: 'sanjay-j', name: 'Sanjay J', role: 'Co-Founder & CEO, Operations' },
+    { slug: 'suthikshan-k', name: 'Suthikshan K', role: 'Co-Founder, Software' },
   ],
 } as const
 
