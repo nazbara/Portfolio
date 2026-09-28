@@ -49,7 +49,7 @@ export const founders = {
   label: 'Leadership',
   heading: 'Founders',
   people: [
-    { slug: 'tharun-balaji-s', name: 'Tharun Balaji S', role: 'Founder & CEO' },
+    { slug: 'tharun-balaji-s', name: 'Tharun Balaji S', role: 'Founder & Executive Chairman' },
     { slug: 'sanjay-j', name: 'Sanjay J', role: 'Co-Founder & CEO, Operations' },
     { slug: 'suthikshan-k', name: 'Suthikshan K', role: 'Co-Founder, Software' },
   ],
